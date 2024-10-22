@@ -6,6 +6,7 @@ import React from 'react';
 import SideBar from './SideBar';
 /*import InsertAlumno from './ContenConstancia';*/
 import BuscarAlumno from './BuscarAlumno';
+import IniciarSesion from './IniciarSesion';
 
 
 
@@ -14,12 +15,7 @@ function App(){
   <div className="App">
     <header className="App-header">
       <div className='ContenedorPrincipal'>
-        <div className='ContenedorSideBar'>
-        <SideBar/>
-        </div>
-        <div className='ContenedorContancias'>
-        <BuscarAlumno/>
-        </div>
+        <IniciarSesion/>
       </div>
     </header>
   </div>
