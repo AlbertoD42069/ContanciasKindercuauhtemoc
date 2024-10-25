@@ -7,6 +7,8 @@ import SideBar from './SideBar';
 /*import InsertAlumno from './ContenConstancia';*/
 import BuscarAlumno from './BuscarAlumno';
 import IniciarSesion from './IniciarSesion';
+import './ObtenerFecha.js'
+
 
 
 

@@ -53,5 +53,8 @@ select{
     height: 25px;
     border: 1px;
     border-radius: 5px;
-
+}
+.alertaUsuario{
+    height: 10px;
+    color: red;
 }
