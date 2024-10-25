@@ -1,8 +1,9 @@
 import React from 'react'
 import './IniciarSesion.css'
-import './ObtenerFecha.js'
+
 
 export default function IniciarSesion() {
+
   return (
     
     <div className='contenedorPtincipalLogin'>
@@ -28,7 +29,6 @@ export default function IniciarSesion() {
                         <input/>
                     </div>
                </div>
-               <h4 id='fecha'></h4>
                <div className="contenButton">
                 
                 <button onClick={() => console.log('Alumno agregado')}>Iniciar Sesion</button>
