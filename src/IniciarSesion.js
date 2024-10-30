@@ -1,11 +1,15 @@
 import React from 'react'
 import './IniciarSesion.css'
+import btnSesion from './Button.js'
+import { useState, useEffect } from 'react'
+import Button from './Button.js'
+
 
 
 export default function IniciarSesion() {
-
+   const [usuario, setUser] = useState('');
+   const [contraseña, setContra] = useState('');
   return (
-    
     <div className='contenedorPtincipalLogin'>
         <div className='contenedorLogin'>
             <div className='buscarAlumno'>
@@ -18,7 +22,7 @@ export default function IniciarSesion() {
                         usuario
                     </div>
                     <div className='contenido'>
-                        <input/>
+                        <input value={usuario}/>
                     </div>
                </div>
                <div className='nombres'>
@@ -26,12 +30,11 @@ export default function IniciarSesion() {
                         contraseña
                     </div>
                     <div className='contenido'>
-                        <input/>
+                        <input value={contraseña}/>
                     </div>
                </div>
                <div className="contenButton">
-                
-                <button onClick={() => console.log('Alumno agregado')}>Iniciar Sesion</button>
+                    <Button />
                </div><br/>
                <div className='alertaUsuario'>
                 Usuario Incorrecto

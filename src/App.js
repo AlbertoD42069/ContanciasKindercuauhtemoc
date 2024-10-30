@@ -3,14 +3,11 @@ import './App.css';
 import {addDoc, collection, getDocs, getFirestore} from 'firebase/firestore/lite';
 import { app } from './firebase';*/
 import React from 'react';
-import SideBar from './SideBar';
+import SideBar from './SideBar.js';
 /*import InsertAlumno from './ContenConstancia';*/
-import BuscarAlumno from './BuscarAlumno';
-import IniciarSesion from './IniciarSesion';
+import BuscarAlumno from './BuscarAlumno.js';
+import IniciarSesion from './IniciarSesion.js';
 import './ObtenerFecha.js'
-
-
-
 
 function App(){
   return (

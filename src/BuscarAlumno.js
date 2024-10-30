@@ -5,11 +5,11 @@ export default function BuscarAlumno() {
     <div className='contentBuscarAlumno'>
         <div className='contenedorBuscarAlumno'>
             <div className='AlumnoTitulo'>
-                 <h1>Buscar contancia de alumno</h1>
+                 <h1>Buscar contancia alumno</h1>
             </div>
 
             <div className='formularioAgregarAlumno'>
-               <div className='buscarAlumno'>
+               <div className='buscaralumno'>
                     <div className='contenido'>
                         <input/>
                     </div>
