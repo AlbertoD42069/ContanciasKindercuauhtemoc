@@ -7,8 +7,11 @@ import Button from './Button.js'
 
 
 export default function IniciarSesion() {
-   const [usuario, setUser] = useState('');
-   const [contraseña, setContra] = useState('');
+   const [usuario, setUser] = useState();
+   const [contraseña, setContra] = useState();
+   const enviarDatos = () => {
+
+  }
   return (
     <div className='contenedorPtincipalLogin'>
         <div className='contenedorLogin'>
@@ -22,7 +25,7 @@ export default function IniciarSesion() {
                         usuario
                     </div>
                     <div className='contenido'>
-                        <input value={usuario}/>
+                        <input type='text'value={usuario}/>
                     </div>
                </div>
                <div className='nombres'>
@@ -30,11 +33,11 @@ export default function IniciarSesion() {
                         contraseña
                     </div>
                     <div className='contenido'>
-                        <input value={contraseña}/>
+                        <input type='password' value={contraseña}/>
                     </div>
                </div>
                <div className="contenButton">
-                    <Button />
+                    <Button enviarDatos={[usuario,contraseña]}/>
                </div><br/>
                <div className='alertaUsuario'>
                 Usuario Incorrecto

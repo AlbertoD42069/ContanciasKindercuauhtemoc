@@ -1,6 +1,6 @@
 import React from "react";
 
-function Button(){
+function Button(usuario, contraseña){
 
     const inicioSesion = () => {
         console.log("iniciar sesion");
