@@ -1,17 +1,15 @@
 import React from 'react'
 import './IniciarSesion.css'
 import btnSesion from './Button.js'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Button from './Button.js'
+import { inicioSesion } from './firebase';
+import {getAuth, onAuthStateChanged} from 'firebase/auth';
+const authInicioSesion = getAuth(inicioSesion);
 
 
 
 export default function IniciarSesion() {
-   const [usuario, setUser] = useState();
-   const [contraseña, setContra] = useState();
-   const enviarDatos = () => {
-
-  }
   return (
     <div className='contenedorPtincipalLogin'>
         <div className='contenedorLogin'>
@@ -48,3 +46,9 @@ export default function IniciarSesion() {
 
   )
 }
+/*
+   const [usuario, setUser] = useState();
+   const [contraseña, setContra] = useState();
+   const enviarDatos = () => {
+
+  }*/
