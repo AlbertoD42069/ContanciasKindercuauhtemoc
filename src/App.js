@@ -1,11 +1,29 @@
 import './App.css';
 import { useState } from 'react';
+import appFirebaseKinder from './firebase.js';
+import {getAuth, onAuthStateChanged} from 'firebase/auth';
+//conmponentes
+import LoginKinder from './Componentes/LoginKinder.js';
+import HomeKinder from './Componentes/HomeKinder.js';
+const authKinder = getAuth(appFirebaseKinder);
  
 function App(){
-    return (
+
+  //variable estado
+  const [userKinder, setUserKindeer] = useState(null);
+  onAuthStateChanged(authKinder, (userKinderFb => {
+    if (userKinderFb) {
+      setUserKindeer(userKinderFb);
+    } else {
+      setUserKindeer(null);
+    }
+  }));
+
+  return (
   <div className="App">
     <header className="App-header">
       <div className='ContenedorPrincipal'>
+        {userKinder? <HomeKinder userEmail = {userKinder.email}/> : <LoginKinder/>}
       </div>
     </header>
   </div>
