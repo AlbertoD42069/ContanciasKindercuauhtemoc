@@ -1,26 +1,11 @@
 import './App.css';
-
-
-const authInicioSesion = getAuth(inicioSesion);
-
-
+import { useState } from 'react';
+ 
 function App(){
-
-  const [usuario, setUsuario] = useState(null);
-  onAuthStateChanged(authInicioSesion, (usuarioKinder) => {
-    if (usuarioKinder) {
-        setUsuario(usuarioKinder);
-      
-    } else {
-      setUsuario(null)
-    }
-  });
-
     return (
   <div className="App">
     <header className="App-header">
       <div className='ContenedorPrincipal'>
-        {usuario ? <HomeConstancias correoUsuario = {usuario.email}/> : <Login/>}
       </div>
     </header>
   </div>
@@ -28,6 +13,7 @@ function App(){
 }
 export default App;
 /*
+        {usuario ? <HomeConstancias correoUsuario = {usuario.email}/> : <Login/>}
 
 import React, { useState } from 'react';
 import SideBar from '../Recursos/SideBar.js';
