@@ -1,21 +1,26 @@
 import './App.css';
-/*import { Component } from 'react';
-import {addDoc, collection, getDocs, getFirestore} from 'firebase/firestore/lite';
-import { app } from './firebase';*/
-import React from 'react';
-import SideBar from './SideBar';
-/*import InsertAlumno from './ContenConstancia';*/
-import BuscarAlumno from './BuscarAlumno';
-import IniciarSesion from './IniciarSesion';
 
+
+const authInicioSesion = getAuth(inicioSesion);
 
 
 function App(){
-  return (
+
+  const [usuario, setUsuario] = useState(null);
+  onAuthStateChanged(authInicioSesion, (usuarioKinder) => {
+    if (usuarioKinder) {
+        setUsuario(usuarioKinder);
+      
+    } else {
+      setUsuario(null)
+    }
+  });
+
+    return (
   <div className="App">
     <header className="App-header">
       <div className='ContenedorPrincipal'>
-        <IniciarSesion/>
+        {usuario ? <HomeConstancias correoUsuario = {usuario.email}/> : <Login/>}
       </div>
     </header>
   </div>
@@ -23,6 +28,20 @@ function App(){
 }
 export default App;
 /*
+
+import React, { useState } from 'react';
+import SideBar from '../Recursos/SideBar.js';
+/*import InsertAlumno from './ContenConstancia';
+import BuscarAlumno from '../Recursos/BuscarAlumno.js';
+import IniciarSesion from '../Recursos/IniciarSesion.js';
+import inicioSesion from '../firebase.js';
+import {getAuth, onAuthStateChanged} from 'firebase/auth';
+import Login from '../Recursos/IniciarSesion.js';
+import HomeConstancias from '../Recursos/ContenConstancia.js'
+import { Component } from 'react';
+import {addDoc, collection, getDocs, getFirestore} from 'firebase/firestore/lite';
+import { app } from './firebase';
+        <IniciarSesion/>
 
 <SideBar/>
 class App extends Component {
