@@ -8,7 +8,6 @@ import HomeKinder from './Componentes/HomeKinder.js';
 const authKinder = getAuth(appFirebaseKinder);
  
 function App(){
-
   //variable estado
   const [userKinder, setUserKindeer] = useState(null);
   onAuthStateChanged(authKinder, (userKinderFb => {
