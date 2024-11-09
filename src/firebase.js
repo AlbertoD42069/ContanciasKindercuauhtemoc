@@ -1,4 +1,5 @@
-import {initializeApp} from "firebase/app"
+import {initializeApp} from "firebase/app";
+import { getAuth } from "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyDPUulEmx6VEeO59OjAvjNsCwaxKGzSLqU",
     authDomain: "contanciaskinder.firebaseapp.com",
@@ -8,5 +9,6 @@ const firebaseConfig = {
     appId: "1:691585421981:web:71eec08c79188a91b1ba74",
     measurementId: "G-XKBT6Q8NLF"
   };
-  const appFirebaseKinder=initializeApp(firebaseConfig)
-  export default appFirebaseKinder;
+  const appFirebaseKinder = initializeApp(firebaseConfig)
+  const auth = getAuth(appFirebaseKinder)
+  export default {auth, appFirebaseKinder};

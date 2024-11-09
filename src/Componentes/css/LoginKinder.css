@@ -3,6 +3,7 @@
     display: flex;
     height: 100%;
     width: 100%;
+
 }
 .contenedorLogin{
     text-align: center;
@@ -11,6 +12,8 @@
     margin: 30%;
     padding: 60px;
     border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px rgb(175, 175, 175);
+
 } 
 .contentForm {
     display: flex;
@@ -18,7 +21,7 @@
     height: 50px;    
 }
 .titulo{
-    width: 50%;
+    width: 40%;
     height: 30px;
     align-items: center;
     text-align: right;
@@ -27,12 +30,14 @@
     display: block;
 }
 .contenido{
-    width: 50%;
+    width: 60%;
     height: 30px;
     text-align: center;
     align-items: center;
     display: flex;
     padding-top: 15px;
+    font-size: 18px;
+
 }
 button {
     height: 40px;
@@ -44,6 +49,6 @@ input {
     border-radius: 15px;
     border: 1px;
     height: 30px;
-    width: 200px;
+    width: 300px;
     padding: 15px;
 }

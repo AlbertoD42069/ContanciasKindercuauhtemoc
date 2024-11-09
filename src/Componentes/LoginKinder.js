@@ -4,13 +4,12 @@ import './interfaz/ButtonLoginKinder.js';
 import ButtonLoginKinder from './interfaz/ButtonLoginKinder.js';
 
 import appFirebaseKinder from '../firebase.js';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword ,createUserWithEmailAndPassword} from 'firebase/auth';
 const auth = getAuth(appFirebaseKinder)
 
 export default function LoginKinder() {
 
     const [isUserKinder, setIsUserKinder] = useState(false)
-
 
     const [userKinder, setUserKinder] = useState();
     const [updateUserKinder, setUpdateUserKinder] = useState();
@@ -26,21 +25,23 @@ export default function LoginKinder() {
         setPassKinder(event.target.value);
     }
 
-    const login = () => {
+    const login = async(e) => {
+        e.preventDefault();
+        setUserKinder(e.target.value);
+        setPassKinder(e.target.value);
         setUpdateUserKinder(userKinder);
         setUpdatePassKinder(passKinder);
-        const menssage = 'usuario o contraseña incorrecta'
-        
-        /*cambiar por los valores de firebase*/
-       if (isUserKinder) {
-            alert(menssage)
-       } else {
-            signInWithEmailAndPassword(auth,userKinder,passKinder)
-       }
-    }
-    
+        console.log(userKinder);
+        console.log(passKinder);
 
-  return (
+        if (isUserKinder) {
+            await  alert("Error");  
+        } else {
+            await signInWithEmailAndPassword(auth, userKinder, passKinder)
+        }
+    }
+  
+    return (
     <div className='contenedorPtincipalLogin'>
         <div className='contenedorLogin'>
             <div className='login'>
@@ -66,9 +67,12 @@ export default function LoginKinder() {
                </div><br/>
                <div className="contenButton" >
                <button onClick={login}>Iniciar Sesion</button>
-               </div>
+               </div><br/>
             </div>
         </div>
     </div>
   )
 }
+/*
+               <h4>{!isUserKinder ? '' : 'usuario o contraseña incorrecta, favor de revisar'} </h4>
+*/
