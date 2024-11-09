@@ -3,10 +3,10 @@ import './App.css';
 import {addDoc, collection, getDocs, getFirestore} from 'firebase/firestore/lite';
 import { app } from './firebase';*/
 import React from 'react';
-import SideBar from './SideBar';
-/*import InsertAlumno from './ContenConstancia';*/
-import BuscarAlumno from './BuscarAlumno';
-import IniciarSesion from './IniciarSesion';
+/*import SideBar from './SideBar';
+import InsertAlumno from './ContenConstancia';
+import BuscarAlumno from './BuscarAlumno';*/
+import IniciarSesion from './RecursosV1/IniciarSesion';
 
 
 

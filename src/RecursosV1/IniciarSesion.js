@@ -1,5 +1,6 @@
 import React from 'react'
-import './IniciarSesion.css'
+/*import './RecursosV1/IniciarSesion.css';*/
+import './RecursosV1/IniciarSesion.css';
 
 export default function IniciarSesion() {
   return (
