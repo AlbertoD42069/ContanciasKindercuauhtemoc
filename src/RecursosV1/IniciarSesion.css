@@ -5,16 +5,38 @@
     width: 100%;
 }
 .contenedorLogin{
-    text-align: center;
     width: 100%;
     background-color: rgb(226, 226, 226);
     margin: 30%;
     padding: 60px;
     border-radius: 10px;
+    box-shadow: 1px 1px 5px 1px rgb(100, 100, 100);
+}
+.IniciarSesionUsuario, .IniciarSesionContraseña, .contenButtonLogin{
+    margin-left: 30%;
+    text-align: left;
+}
+input {
+    border-radius: 10px;
+    border: 1px;
+    height: 30px;
+    width: 250px;
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 10px;
+    font-size: 15px;
 
-} 
+}
+button {
+    margin-top: 30px;
+    height: 40px;
+    width: 200px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+/*
 .nombres {
-    display: flex;
+    display:inline ;
     width: 100%;
     height: 50px;
 }
@@ -47,6 +69,8 @@ input {
     border: 1px;
     height: 20px;
     width: 150px;
+    text-align: center;
+
 }
 select{
     width: 150px;
@@ -55,3 +79,4 @@ select{
     border-radius: 5px;
 
 }
+*/
