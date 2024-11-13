@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-/*import './RecursosV1/IniciarSesion.css';*/
 import './IniciarSesion.css';
-import 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { authKinder } from '../firebase';
+
 
 export default function IniciarSesion(){
 
     const [userKinder, setUserKinder] = useState();
     const [passKinder, setPassKinder] = useState();
+    const [error, setError] = useState('');
 
-    const [updateUserKinder, updateSetUserKinder] = useState();
-    const [updatePassKinder, updateSetPassKinder] = useState();
 
     const authKinderUserOnChange = (e) => {
         setUserKinder(e.target.value);
@@ -17,10 +17,17 @@ export default function IniciarSesion(){
     const authKinderPassOnChange = (e) => {
         setPassKinder(e.target.value);
     }
-    const authKinderUserOnClick = (e) => {
-        updateSetUserKinder(userKinder)
-        updateSetPassKinder(userKinder)
-        console.log(userKinder,userKinder)
+    const authKinderUserOnClick = async () => {
+        try {
+            await signInWithEmailAndPassword(authKinder, userKinder, passKinder);
+            alert('Inicio de sesión exitoso');
+            setError(''); // Limpia cualquier error previo
+          } catch (err) {
+            setError(err.message);
+          }
+
+        /*console.log(userKinder,userKinder)*/
+
     }
 
   return (
