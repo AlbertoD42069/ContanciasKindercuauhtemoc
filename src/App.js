@@ -2,20 +2,34 @@ import './App.css';
 /*import { Component } from 'react';
 import {addDoc, collection, getDocs, getFirestore} from 'firebase/firestore/lite';
 import { app } from './firebase';*/
-import React from 'react';
+import React, { useState } from 'react';
 /*import SideBar from './SideBar';
 import InsertAlumno from './ContenConstancia';
 import BuscarAlumno from './BuscarAlumno';*/
-import IniciarSesion from './RecursosV1/IniciarSesion';
-
-
+import LoginKinder from './Componets/LoginKinder.js';
+import HomeKinder from './Componets/HomeKinder.js';
+import { appKinder } from './firebase';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { authKinder } from './firebase';
 
 function App(){
+
+  const [userKinder, setUserKinder] = useState(null);
+
+  onAuthStateChanged(authKinder, (isLoginUserKinder)=>{
+    if (isLoginUserKinder) {
+      setUserKinder(isLoginUserKinder)
+    } else {
+      setUserKinder(null)
+    }
+  });
   return (
   <div className="App">
     <header className="App-header">
       <div className='ContenedorPrincipal'>
-        <IniciarSesion/>
+        {
+          userKinder ? <HomeKinder userKinderlogin = {userKinder.email}/> : <LoginKinder/>
+        }
       </div>
     </header>
   </div>
