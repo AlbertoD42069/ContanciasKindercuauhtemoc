@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import './contenConstancia.css'
 import './BsucarAlumno.css'
 
@@ -100,7 +100,7 @@ export default function ContenConstancia() {
       
     </div>
   )
-}
+}*/
 /*
 <div className='nombreAlumno'>
                         <label>nombres</label>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import './IniciarSesion.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { authKinder } from '../firebase';
@@ -26,9 +26,10 @@ export default function IniciarSesion(){
             setError(err.message);
           }
 
-        /*console.log(userKinder,userKinder)*/
+        console.log(userKinder,userKinder)
 
-    }
+    }*/
+    /*
 
   return (
     <div className='contenedorPtincipalLogin'>
@@ -63,4 +64,4 @@ export default function IniciarSesion(){
         </div>
     </div>
   )
-}
+}*/

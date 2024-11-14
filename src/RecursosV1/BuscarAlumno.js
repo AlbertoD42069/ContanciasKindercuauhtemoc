@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 
 export default function BuscarAlumno() {
   return (
@@ -42,4 +42,4 @@ export default function BuscarAlumno() {
       
     </div>
   )
-}
+}*/

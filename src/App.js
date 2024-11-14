@@ -27,16 +27,18 @@ function App(){
   <div className="App">
     <header className="App-header">
       <div className='ContenedorPrincipal'>
-        {
-          userKinder ? <HomeKinder userKinderlogin = {userKinder.email}/> : <LoginKinder/>
-        }
+        <HomeKinder/>
       </div>
+      
     </header>
   </div>
   );
 }
 export default App;
 /*
+{
+          userKinder ? <HomeKinder userKinderlogin = {userKinder.email}/> : <LoginKinder/>
+        }
 
 <SideBar/>
 class App extends Component {
