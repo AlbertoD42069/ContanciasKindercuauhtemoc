@@ -56,12 +56,53 @@ export default function ConstanciasKinder() {
   }
 
   return (
-    <div className='contenedorConstanciasPrincipal'>
-        <div className='contenedorLogin'>
-            <div className='login'>
-            <div>
+    <div className='contenedor'>
+        <div className='contanciasKinder'>
+            <div className='tituloKinder'>
                 <h3>Registrar alumno </h3>
-              </div>
+            </div>
+            <div className='nombreCompletoAlumno'>
+              
+              <div className='nombreAlmuno'>
+                  <div>
+                    <label>Nombres</label>
+                  </div>
+                  <div>
+                    <input 
+                    type='text' 
+                    value={nombresAlumno} 
+                    onChange={nombresAlumnoOnChange}
+                    />
+                  </div>
+                </div>
+                
+                <div className='primerApellido'>
+                  <div>
+                      <label>Primer Apellido</label>
+                  </div>
+                  <div className='contenidoContrasena'>
+                      <input 
+                      type='text'
+                      value={primerApellidoAlumno}
+                      onChange={primerApellidoAlumnoOnChange}
+                      />
+                  </div>
+                </div>
+
+                <div className='segundoApellido'>
+                  <div>
+                      <label>Segundo Apellido</label>
+                  </div>
+                  <div className='contenidoContrasena'>
+                      <input type='text'
+                      value={segundoApellidoAlumno}
+                      onChange={segundoApellidoAlumnoOnChange}
+                      />
+                  </div>
+                </div>
+            </div>
+            <div >
+
             </div>
         </div>
     </div>

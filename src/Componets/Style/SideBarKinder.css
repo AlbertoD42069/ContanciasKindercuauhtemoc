@@ -1,31 +1,49 @@
-/*.sidebarKinder {
+.sidebarKinder {
   background-color:#575757;
+  display:block ;
+  width: 350px;
     
 }
-  .contedor {
-    margin: 10px;
+  .contedorSidebar {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    }
+  p {
+    color: white;
+    margin: 5px;
+  }
+  .listaSidebar {
+    text-align: left;
+    margin-left: 10px;
   }
   
   .sidebar ul {
-    list-style-type: none;
-    padding: 0px;
+    padding: 10px;
   }
-  
   .sidebar ul li {
     padding-left: 20px;
     padding-bottom: 20px;
-    text-align: right;
-  
-  
+    text-align: left;
+    list-style: none;
+    color: white;
+  }
+  .btn-sideBar {
+    margin-top: 10px;
+    height: 40px;
+    width: 200px;
+    font-size: 20px;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    color: white;
   }
   
   .sidebar ul li a {
     color: white;
-    text-decoration: none;
+    text-decoration: none ;
   }
   
   .sidebar ul li a:hover {
-    background-color: #575757;
     display: block;
   }
-  */

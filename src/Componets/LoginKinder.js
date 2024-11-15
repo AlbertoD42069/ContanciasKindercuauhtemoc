@@ -20,10 +20,8 @@ export default function LoginKinder(){
     const authKinderUserOnClick = async () => {
         try {
             await signInWithEmailAndPassword(authKinder, userKinder, passKinder);
-            setError(''); // Limpia cualquier error previo
           } catch (err) {
-            setError(err.message);
-            console.log('error')
+            alert('Usuario y Contraseña incorrecto favor de verificar')
           }
     }
 
@@ -42,16 +40,17 @@ export default function LoginKinder(){
                          <div className='contenidoUsuario'>
                              <input type='text' value={userKinder} onChange={authKinderUserOnChange}/>
                          </div>
-                        </div>
-                        <div className='IniciarSesionContraseña'>
+                    </div>
+
+                    <div className='IniciarSesionContraseña'>
                         <div className='contraseña'>
                             <label>Contraseña</label>
                         </div>
                         <div className='contenidoContrasena'>
                             <input type='password' value={passKinder} onChange={authKinderPassOnChange}/>
                         </div>
-                        </div>
-                         <div className="contenButtonLogin">
+                    </div>
+                    <div className="contenButtonLogin">
                         <button onClick={authKinderUserOnClick}>Iniciar Sesion</button>
                     </div>
                 </div>

@@ -1,17 +1,26 @@
-/*.contenedorPtincipalLogin {
+.contenedor {
     align-items: center;
-    display: flex;
+    display: contents ;
+    vertical-align: top;
     height: 100%;
     width: 100%;
 }
-.contenedorLogin{
+.contanciasKinder{
     width: 100%;
     background-color: rgb(226, 226, 226);
-    margin: 30%;
-    padding: 60px;
+    margin: 20px;
     border-radius: 10px;
     box-shadow: 1px 1px 5px 1px rgb(100, 100, 100);
 }
+.nombreCompletoAlumno{
+    display: flex;
+    margin-left: 15%;
+    text-align: left;
+}
+.primerApellido,  .segundoApellido{
+    margin-left: 5%;
+}
+/*
 .IniciarSesionUsuario, .IniciarSesionContraseña, .contenButtonLogin{
     margin-left: 30%;
     text-align: left;

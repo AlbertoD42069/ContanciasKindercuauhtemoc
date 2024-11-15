@@ -13,10 +13,8 @@ export default function HomeKinder() {
     }
   return (
     <div className='contenedorPrincipalHome'>
-      <div className='sidebarKinder'> siderbar </div>      
-      <div className='sidebarKinder'> contancia </div>      
-           
-
+      <SideBar/>
+      <AgregarAlumnoKinder/>
     </div>
   )
 }
