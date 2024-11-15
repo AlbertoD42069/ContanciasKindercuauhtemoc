@@ -13,57 +13,18 @@
     border-radius: 10px;
     box-shadow: 1px 1px 5px 1px rgb(100, 100, 100);
 }
-.nombreCompletoAlumno, .fechaNacimientoAlumno, .datosEscolares{
-    display: flex;
-    margin-left: 15%;
-    text-align: left;
-    margin-top: 50px;
-}
-.cicloEscolarAlumno {
-    margin-top: 50px;
-    text-align: left;
-    margin-left: 40%;    
-}
-.primerApellido,  .segundoApellido, .generoAlumno, .estatusAlumno{
-    margin-left: 5%;
-    align-items: center;
-}
-.buttonAgregarAlumno {
-    margin-top: 20px;
-}
-/*.contenedorPtincipalLogin {
-    align-items: center;
-    display: flex;
-    height: 100%;
+table {
     width: 100%;
-}
-.contenedorLogin{
-    width: 100%;
-    background-color: rgb(226, 226, 226);
-    margin: 30%;
-    padding: 60px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 5px 1px rgb(100, 100, 100);
-}
-.IniciarSesionUsuario, .IniciarSesionContraseña, .contenButtonLogin{
-    margin-left: 30%;
+    border: 1px solid #000;
+ }
+ th, td {
+    width: 25%;
     text-align: left;
-}
-input {
-    border-radius: 10px;
-    border: 1px;
-    height: 30px;
-    width: 250px;
-    text-align: left;
-    margin-top: 10px;
-    padding-left: 10px;
-    font-size: 15px;
-
-}
-button {
-    margin-top: 30px;
-    height: 40px;
-    width: 200px;
-    font-size: 20px;
-    border-radius: 10px;
-}*/
+    vertical-align: top;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    padding: 0.3em;
+ }
+ caption {
+    padding: 0.3em;
+ }
