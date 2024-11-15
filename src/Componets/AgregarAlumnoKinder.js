@@ -62,7 +62,6 @@ export default function ConstanciasKinder() {
                 <h3>Registrar alumno </h3>
             </div>
             <div className='nombreCompletoAlumno'>
-              
               <div className='nombreAlmuno'>
                   <div>
                     <label>Nombres</label>
@@ -101,55 +100,9 @@ export default function ConstanciasKinder() {
                   </div>
                 </div>
             </div>
-            <div >
-
-            </div>
-        </div>
-    </div>
-  )
-}
-/*
-              <div>
-                <div className='IniciarSesionUsuario'>
+            <div className='fechaNacimientoAlumno'>
+              <div className='fechaNacimiento'>
                   <div>
-                    <label>Nombres</label>
-                  </div>
-                  <div>
-                    <input 
-                    type='text' 
-                    value={nombresAlumno} 
-                    onChange={nombresAlumnoOnChange}
-                    />
-                  </div>
-                </div>
-                
-                <div className='IniciarSesionContraseña'>
-                  <div className='contraseña'>
-                      <label>Primer Apellido</label>
-                  </div>
-                  <div className='contenidoContrasena'>
-                      <input 
-                      type='text'
-                      value={primerApellidoAlumno}
-                      onChange={primerApellidoAlumnoOnChange}
-                      />
-                  </div>
-                </div>
-
-                <div className='IniciarSesionContraseña'>
-                  <div className='contraseña'>
-                      <label>Segundo Apellido</label>
-                  </div>
-                  <div className='contenidoContrasena'>
-                      <input type='text'
-                      value={segundoApellidoAlumno}
-                      onChange={segundoApellidoAlumnoOnChange}
-                      />
-                  </div>
-                </div>
-                
-                <div className='IniciarSesionContraseña'>
-                  <div className='contraseña'>
                       <label>Fecha Nacimiento</label>
                   </div>
                   <div className='contenidoContrasena'>
@@ -160,8 +113,8 @@ export default function ConstanciasKinder() {
                   </div>
                 </div>
 
-                <div className='IniciarSesionContraseña'>
-                  <div className='contraseña'>
+                <div className='generoAlumno'>
+                  <div>
                       <label>Genero</label>
                   </div>
                   <div className='contenidoContrasena'>
@@ -171,9 +124,11 @@ export default function ConstanciasKinder() {
                       />
                   </div>
                 </div>
+            </div>
+            <div className='datosEscolares'>
 
-                <div className='IniciarSesionContraseña'>
-                  <div className='contraseña'>
+            <div className='matriculaAlumno'>
+                  <div>
                       <label>Matricula</label>
                   </div>
                   <div className='contenidoContrasena'>
@@ -184,8 +139,8 @@ export default function ConstanciasKinder() {
                   </div>
                 </div>
 
-                <div className='IniciarSesionContraseña'>
-                  <div className='contraseña'>
+                <div className='generoAlumno'>
+                  <div>
                       <label>Grado</label>
                   </div>
                   <div className='contenidoContrasena'>
@@ -195,9 +150,8 @@ export default function ConstanciasKinder() {
                       />
                   </div>
                 </div>
-
-                <div className='IniciarSesionContraseña'>
-                  <div className='contraseña'>
+                <div className='estatusAlumno'>
+                  <div>
                       <label>Estatus</label>
                   </div>
                   <div className='contenidoContrasena'>
@@ -207,9 +161,11 @@ export default function ConstanciasKinder() {
                       />
                   </div>
                 </div>
-                
-                <div className='IniciarSesionContraseña'>
-                  <div className='contraseña'>
+
+            </div>
+            <div className='cicloEscolarAlumno'>
+            <div className='cicloEscolar'>
+                  <div>
                       <label>ciclo Escolar</label>
                   </div>
                   <div className='contenidoContrasena'>
@@ -219,10 +175,20 @@ export default function ConstanciasKinder() {
                       />
                   </div>
                 </div>
-                
-                <div className="contenButtonLogin">
-                        <button onClick={addNewStudentOnClick}>Agregar Alumno</button>
+            </div>
+            <div className="buttonAgregarAlumno">
+                  <button onClick={addNewStudentOnClick}>Agregar Alumno</button>
                 </div>
+        </div>
+    </div>
+  )
+}
+/*
+
+                
+               
+                
+               
                 </div>
 */
 

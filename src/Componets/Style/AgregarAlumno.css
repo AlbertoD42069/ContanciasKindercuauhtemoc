@@ -8,18 +8,30 @@
 .contanciasKinder{
     width: 100%;
     background-color: rgb(226, 226, 226);
-    margin: 20px;
+    margin: 50px;
+    margin-top: 25px;
     border-radius: 10px;
     box-shadow: 1px 1px 5px 1px rgb(100, 100, 100);
 }
-.nombreCompletoAlumno{
+.nombreCompletoAlumno, .fechaNacimientoAlumno, .datosEscolares{
     display: flex;
     margin-left: 15%;
     text-align: left;
+    margin-top: 50px;
 }
-.primerApellido,  .segundoApellido{
+.cicloEscolarAlumno {
+    margin-top: 50px;
+    text-align: left;
+    margin-left: 40%;    
+}
+.primerApellido,  .segundoApellido, .generoAlumno, .estatusAlumno{
     margin-left: 5%;
+    align-items: center;
 }
+.buttonAgregarAlumno {
+    margin-top: 20px;
+}
+
 /*
 .IniciarSesionUsuario, .IniciarSesionContraseña, .contenButtonLogin{
     margin-left: 30%;

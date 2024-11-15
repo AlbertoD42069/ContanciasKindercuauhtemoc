@@ -3,8 +3,7 @@ import { appKinder } from '../firebase';
 import { getAuth, onAuthStateChanged, signOut} from 'firebase/auth';
 import { authKinder } from '../firebase';
 import SideBar from './SideBarKinder.js';
-import AgregarAlumnoKinder from './AgregarAlumnoKinder.js';
-import ConstanciasKinder from './ConstanciasKinder.js';
+import ConstanciaKinder from './ConstanciasKinder.js'
 import './Style/Home.css';
 
 export default function HomeKinder() {  
@@ -14,11 +13,13 @@ export default function HomeKinder() {
   return (
     <div className='contenedorPrincipalHome'>
       <SideBar/>
-      <AgregarAlumnoKinder/>
+      <ConstanciaKinder/>
     </div>
   )
 }
 /*
+      <AgregarAlumnoKinder/>
+
         <ConstanciasKinder/>
 <p>bienvenido</p>
       <button onClick={exit}>Cerrar Sesion</button>
