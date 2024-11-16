@@ -1,5 +1,9 @@
 import React from 'react';
 import './Style/SideBarKinder.css';
+import { authKinder } from '../firebase';
+import {signOut} from 'firebase/auth';
+
+
 
 export default function SideBarKinder() {
   const registrarAlumno = () => {
@@ -8,9 +12,9 @@ export default function SideBarKinder() {
   const contanciasAlumnos = () => {
     alert('presionado')
   }
-  const cerrarSesion = () => {
-    alert('presionado')
-  }
+  const exit = async () => {
+    await signOut(authKinder);
+}
   return (
     <div className="sidebarKinder">
       <div className='contedorSidebar'>
@@ -25,7 +29,7 @@ export default function SideBarKinder() {
           </button>
           <button className="btn-sideBar">
             Contancias</button>
-          <button className="btn-sideBar">
+          <button className="btn-sideBar" onClick={exit}>
             Cerrar Sesion</button>
           </div>
         </div>

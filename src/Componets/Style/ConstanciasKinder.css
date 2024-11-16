@@ -1,11 +1,13 @@
 .contenedor {
     align-items: center;
-    display: contents ;
+    display: flex ;
     vertical-align: top;
     height: 100%;
     width: 100%;
 }
 .contanciasKinder{
+    align-items: center;
+    text-align: center;
     width: 100%;
     background-color: rgb(226, 226, 226);
     margin: 50px;
@@ -13,18 +15,33 @@
     border-radius: 10px;
     box-shadow: 1px 1px 5px 1px rgb(100, 100, 100);
 }
+
 table {
-    width: 100%;
-    border: 1px solid #000;
- }
- th, td {
-    width: 25%;
-    text-align: left;
-    vertical-align: top;
-    border: 1px solid #000;
-    border-collapse: collapse;
-    padding: 0.3em;
- }
- caption {
-    padding: 0.3em;
- }
+    font-family: arial, sans-serif;
+    border-collapse: collapse ;
+    margin: 30px;
+    width: 95%;
+    align-items: center;
+    text-align: center;
+  }
+  
+  td, th {
+    border: 1px solid #000000;
+    text-align: center;
+    padding: 10px;
+    margin: 30px;
+  }
+  .btn-contancia {
+    margin-top: 1px;
+    font-size: 20px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+  }
+
+  /*
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  */
