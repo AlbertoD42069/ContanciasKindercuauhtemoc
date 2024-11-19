@@ -19,12 +19,7 @@
     text-align: left;
     margin-top: 50px;
 }
-.cicloEscolarAlumno {
-    margin-top: 50px;
-    text-align: left;
-    margin-left: 40%;    
-}
-.primerApellido,  .segundoApellido, .generoAlumno, .estatusAlumno{
+.primerApellido,  .segundoApellido, .generoAlumno, .matriculaAlumno, .estatusAlumno, .cicloEscolar{
     margin-left: 5%;
     align-items: center;
 }

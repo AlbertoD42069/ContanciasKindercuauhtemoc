@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Style/ConstanciasKinder.css';
 
 
 export default function ConstanciasKinder() {
 
+    const [wantedStudent, setWantedStudent] = useState();
+    const wantedStudentOnChange = (e) => {
+        setWantedStudent(e.target.value);
+    }
+    const searchStudentOnclick = async() => {
+        console.log(wantedStudent)
+    }
     const verContanciaOnClick = () => {
         alert('ver contancias')
     }
@@ -17,8 +24,8 @@ export default function ConstanciasKinder() {
         <h3>Constancias Emitidas</h3>
     </div>
     <div className='buscarAlumno'>
-        <input/>
-        <button> buscar alumno </button>
+        <input type='text' value={wantedStudent} onChange={wantedStudentOnChange}/>
+        <button onClick={searchStudentOnclick}> buscar alumno </button>
     </div>
     <div className='tablaContancias'>
     <table>

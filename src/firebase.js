@@ -1,5 +1,6 @@
 import {initializeApp} from "firebase/app";
 import { getAuth } from "firebase/auth";
+import {getFirestore} from "firebase/firestore";
 const firebaseConfig = {
     apiKey: "AIzaSyDPUulEmx6VEeO59OjAvjNsCwaxKGzSLqU",
     authDomain: "contanciaskinder.firebaseapp.com",
@@ -11,3 +12,4 @@ const firebaseConfig = {
   };
   export const appKinder = initializeApp(firebaseConfig);
   export const authKinder = getAuth(appKinder);
+  export const dbKinder = getFirestore(appKinder);
