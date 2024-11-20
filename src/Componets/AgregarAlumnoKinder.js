@@ -6,8 +6,7 @@ import { collection, addDoc } from "firebase/firestore";
 
 export default function AgregarAlumnoKinder() {
 
-
-  const [alumnoData, setFormData] = useState({
+  const [alumnoData, setAlumnoData] = useState({
     nombres: "",
     primerApellido: "",
     segundoApellido: "",
@@ -17,33 +16,49 @@ export default function AgregarAlumnoKinder() {
     grado: "",
     estatus: "",
     cicloEscolar: "",
-
   });
+
   const handleChangeAlumno = (e) => {
-    const { name, firstName, secondName, genero, matricula,grado,estatus,cicloEscolar, value } = e.target;
-    setFormData({ ...alumnoData, 
-      [name]: value,
-      [firstName]: value,
-      [secondName]: value,
-      [genero]: value,
-      [matricula]: value,
-      [grado]: value,
-      [estatus]: value,
-      [cicloEscolar]: value,
+    const { name, valueName } = e.target;
+    const { lastName, valueLastName } = e.target;
+    const { middleName, valueMiddleName } = e.target;
+    const { dateBirth, valueDateBirth } = e.target;
+    const { gender, valueGender } = e.target;
+    const { tuition, valueTuition } = e.target;
+    const { grade, valueGrade } = e.target;
+    const { status, valueStatus } = e.target;
+    const { schoolYear, valueSchoolYear } = e.target;
+
+    setAlumnoData({ 
+      ...alumnoData, 
+      [name]: valueName,
+      [lastName]: valueLastName,
+      [middleName]: valueMiddleName,
+      [dateBirth]: valueDateBirth,
+      [gender]: valueGender,
+      [tuition]: valueTuition,
+      [grade]: valueGrade,
+      [status]: valueStatus,
+      [schoolYear]: valueSchoolYear,
     });
   };
-
-  const handleOnClickAlumno= async (e) => {
+  const handleOnClickAlumno = async (e) => {
     e.preventDefault();
     try {
-      const docAlumnoscontancia = await addDoc(collection(dbKinder,'alumnos', alumnoData));
-      console.log("Documento añadido con ID:", addDoc.id);
+      const docAlumnoscontancia = await addDoc(collection(dbKinder, 'alumnos'), alumnoData);
+      console.log("Documento añadido con ID:", docAlumnoscontancia.id);
+
       alert("Datos enviados correctamente.");
-      setFormData({
-        nombre: "",
-        email: "",
-        telefono: "",
-        direccion: "",
+      setAlumnoData({
+        nombres: "",
+        primerApellido: "",
+        segundoApellido: "",
+        fechaNacimiento: "",
+        genero: "",
+        matricula: "",
+        grado: "",
+        estatus: "",
+        cicloEscolar: "",
       });
     } catch (error) {
       console.error("Error al añadir el documento: ", error);
@@ -65,9 +80,11 @@ export default function AgregarAlumnoKinder() {
                   </div>
                   <div>
                     <input 
-                    type='text' 
+                    type='text'
+                    name='nombres'
                     value={alumnoData.nombres} 
                     onChange={handleChangeAlumno}
+                    required
                     />
                   </div>
                 </div>
@@ -79,8 +96,10 @@ export default function AgregarAlumnoKinder() {
                   <div className='contenido'>
                       <input 
                       type='text'
-                      value={primerApellidoAlumno}
-                      onChange={primerApellidoAlumnoOnChange}
+                      name='primerApellido'
+                      value={alumnoData.primerApellido}
+                      onChange={handleChangeAlumno}
+                      required
                       />
                   </div>
                 </div>
@@ -91,8 +110,10 @@ export default function AgregarAlumnoKinder() {
                   </div>
                   <div className='contenido'>
                       <input type='text'
-                      value={segundoApellidoAlumno}
-                      onChange={segundoApellidoAlumnoOnChange}
+                      name='segundoApellido'
+                      value={alumnoData.segundoApellido}
+                      onChange={handleChangeAlumno}
+                      required
                       />
                   </div>
                 </div>
@@ -104,8 +125,10 @@ export default function AgregarAlumnoKinder() {
                   </div>
                   <div className='contenido'>
                       <input type='text'
-                      value={fechaNacimientoAlumno}
-                      onChange={fechaNacimientoAlumnoOnChange}
+                      name='fechaNacimiento'
+                      value={alumnoData.fechaNacimiento}
+                      onChange={handleChangeAlumno}
+                      required
                       />
                   </div>
                 </div>
@@ -116,8 +139,9 @@ export default function AgregarAlumnoKinder() {
                   </div>
                   <div className='contenido'>
                       <input type='text'
-                      value={generoAlumno}
-                      onChange={generoAlumnoOnChange}
+                      name='genero'
+                      value={alumnoData.genero}
+                      onChange={handleChangeAlumno}
                       />
                   </div>
                 </div>
@@ -127,8 +151,9 @@ export default function AgregarAlumnoKinder() {
                   </div>
                   <div className='contenido'>
                       <input type='text'
-                      value={matriculaAlumno}
-                      onChange={matriculaAlumnoOnChange}
+                      name='matricula'
+                      value={alumnoData.matricula}
+                      onChange={handleChangeAlumno}
                       />
                   </div>
                 </div>
@@ -141,8 +166,9 @@ export default function AgregarAlumnoKinder() {
                   </div>
                   <div className='contenido'>
                       <input type='text'
-                      value={gradoAlumno}
-                      onChange={gradoAlumnoOnChange}
+                      name='grado'
+                      value={alumnoData.grado}
+                      onChange={handleChangeAlumno}
                       />
                   </div>
                 </div>
@@ -152,8 +178,9 @@ export default function AgregarAlumnoKinder() {
                   </div>
                   <div className='contenido'>
                       <input type='text'
-                      value={estatusAlumno}
-                      onChange={estatusAlumnoOnChange}
+                      name='estatus'
+                      value={alumnoData.estatus}
+                      onChange={handleChangeAlumno}
                       />
                   </div>
                 </div>
@@ -163,14 +190,15 @@ export default function AgregarAlumnoKinder() {
                   </div>
                   <div className='contenido'>
                       <input type='text'
-                      value={cicloEscolarAlumno}
-                      onChange={cicloEscolarAlumnoOnChange}
+                      name='cicloEscolar'
+                      value={alumnoData.cicloEscolar}
+                      onChange={handleChangeAlumno}
                       />
                   </div>
                 </div>
                 </div><br/>
                   <div className="buttonAgregarAlumno">
-                        <button onClick={addNewStudentOnClick}>Agregar Alumno</button>
+                        <button onClick={handleOnClickAlumno}>Agregar Alumno</button>
                   </div>
         </div>
     </div>
