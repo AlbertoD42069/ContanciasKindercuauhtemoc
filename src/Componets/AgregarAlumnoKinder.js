@@ -42,12 +42,14 @@ export default function AgregarAlumnoKinder() {
       [schoolYear]: valueSchoolYear,
     });
   };
+  
+  const nameCollection = 'alumnos'
   const handleOnClickAlumno = async (e) => {
+
     e.preventDefault();
     try {
-      const docAlumnoscontancia = await addDoc(collection(dbKinder, 'alumnos'), alumnoData);
+      const docAlumnoscontancia = await addDoc(collection(dbKinder, nameCollection), alumnoData);
       console.log("Documento añadido con ID:", docAlumnoscontancia.id);
-
       alert("Datos enviados correctamente.");
       setAlumnoData({
         nombres: "",
@@ -65,8 +67,7 @@ export default function AgregarAlumnoKinder() {
       alert("Hubo un error al enviar los datos.");
     }
   }
- 
-  
+
   return (
     <div className='contenedor'>
         <div className='contanciasKinder'>
@@ -79,9 +80,9 @@ export default function AgregarAlumnoKinder() {
                     <label>Nombres</label>
                   </div>
                   <div>
-                    <input 
+                    <input
                     type='text'
-                    name='nombres'
+                    name="nombres"
                     value={alumnoData.nombres} 
                     onChange={handleChangeAlumno}
                     required
