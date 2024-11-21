@@ -82,7 +82,7 @@ export default function AgregarAlumnoKinder() {
                   <div>
                     <input
                     type='text'
-                    name="nombres"
+                    name='nombres'
                     value={alumnoData.nombres} 
                     onChange={handleChangeAlumno}
                     required
