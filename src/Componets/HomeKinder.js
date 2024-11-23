@@ -4,7 +4,7 @@ import { getAuth, onAuthStateChanged, signOut} from 'firebase/auth';
 import { authKinder } from '../firebase';
 import SideBar from './SideBarKinder.js';
 import ConstanciaKinder from './ConstanciasKinder.js'
-import AgregarAlumnoKinder from './AgregarAlumnoKinder.js'
+import FormAgregarAlumnoKinder from './FormAgregarAlumnoKinder.js'
 import './Style/Home.css';
 
 export default function HomeKinder() {  
@@ -14,8 +14,7 @@ export default function HomeKinder() {
   return (
     <div className='contenedorPrincipalHome'>
       <SideBar/>
-      <AgregarAlumnoKinder/>
-
+      <FormAgregarAlumnoKinder/>
     </div>
   )
 }
