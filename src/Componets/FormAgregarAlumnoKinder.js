@@ -13,24 +13,25 @@ export default function AgregarAlumnoKinder() {
   const [generoAlumno, setGeneroAlumno] = useState("");
   const [matriculaAlumno, setMatriculaAlumno] = useState("");
   const [gradoAlumno, setGradoAlumno] = useState("");
-  const [estatusAlumno, setEstatusAlumno] = useState("");
   const [cicloEscolarAlumno, setCicloEscolarAlumno] = useState("");
   
   const collectionName = "alumnos"
   const handleOnClickAlumno = async(e) => {
     e.preventDefault();
+
+
     const fechaACtual = Date.now()
     const fechaEmisionConstancia = new Date(fechaACtual);
     const fechaLocalEmisionConstancia = fechaEmisionConstancia.toLocaleDateString();
+
+
     if (!nombreAlumno ||
         !primerAlumno ||
         !segundoAlumno ||
         !fechaNacimientoAlumno ||
         !generoAlumno ||
         !matriculaAlumno ||
-        !gradoAlumno ||
-        !estatusAlumno ||
-        !estatusAlumno) {
+        !gradoAlumno) {
         alert("Por favor, completa todos los campos.");
         return;
         
@@ -47,7 +48,6 @@ export default function AgregarAlumnoKinder() {
         genero: generoAlumno,
         matricula: matriculaAlumno,
         grado: gradoAlumno,
-        estatus: estatusAlumno,
         cicloEscolar: cicloEscolarAlumno,
         fechaEmisionConstancia: fechaLocalEmisionConstancia,
     });
@@ -62,7 +62,6 @@ export default function AgregarAlumnoKinder() {
         setGeneroAlumno("");
         setMatriculaAlumno("");
         setGradoAlumno("");
-        setEstatusAlumno("");
         setCicloEscolarAlumno("");
 
     }
@@ -166,23 +165,16 @@ export default function AgregarAlumnoKinder() {
                       <label>Grado</label>
                   </div>
                   <div className='contenido'>
-                      <input type='text'
+                      <select
+                      type='text'
                       name='grado'
                       value={gradoAlumno}
-                      onChange={(e) => setGradoAlumno(e.target.value)}
-                      />
-                  </div>
-                </div>
-                <div className='estatusAlumno'>
-                  <div>
-                      <label>Estatus</label>
-                  </div>
-                  <div className='contenido'>
-                      <input type='text'
-                      name='estatus'
-                      value={estatusAlumno}
-                      onChange={(e) => setEstatusAlumno(e.target.value)}
-                      />
+                      onChange={(e) => setGradoAlumno(e.target.value)}>
+                      <option>Seleciona un grado</option>
+                      <option value="Primer grado">primero</option>
+                      <option value="Segundo grado">Segundo</option>
+                      <option value="Tercer grado">Tercero</option>
+                      </select>
                   </div>
                 </div>
                 <div className='cicloEscolar'>
@@ -203,3 +195,30 @@ export default function AgregarAlumnoKinder() {
     </div>
   )
 }
+/*
+ <div className='gradoAlumno'>
+                  <div>
+                      <label>Grado</label>
+                  </div>
+                  <div className='contenido'>
+                      <input type='number'
+                      name='grado'
+                      value={gradoAlumno}
+                      onChange={(e) => setGradoAlumno(e.target.value)}
+                      />
+                  </div>
+                </div> 
+
+                <div className='estatusAlumno'>
+                  <div>
+                      <label>Estatus</label>
+                  </div>
+                  <div className='contenido'>
+                      <input type='text'
+                      name='estatus'
+                      value={estatusAlumno}
+                      onChange={(e) => setEstatusAlumno(e.target.value)}
+                      />
+                  </div>
+                </div>
+*/
