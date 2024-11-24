@@ -19,6 +19,9 @@ export default function AgregarAlumnoKinder() {
   const collectionName = "alumnos"
   const handleOnClickAlumno = async(e) => {
     e.preventDefault();
+    const fechaACtual = Date.now()
+    const fechaEmisionConstancia = new Date(fechaACtual);
+    const fechaLocalEmisionConstancia = fechaEmisionConstancia.toLocaleDateString();
     if (!nombreAlumno ||
         !primerAlumno ||
         !segundoAlumno ||
@@ -30,6 +33,7 @@ export default function AgregarAlumnoKinder() {
         !estatusAlumno) {
         alert("Por favor, completa todos los campos.");
         return;
+        
     };
     try {
     //obtener referencia de coleccion
@@ -45,23 +49,23 @@ export default function AgregarAlumnoKinder() {
         grado: gradoAlumno,
         estatus: estatusAlumno,
         cicloEscolar: cicloEscolarAlumno,
+        fechaEmisionConstancia: fechaLocalEmisionConstancia,
     });
-    alert("alumno agregado correctamente")
-    console.log("documento -- ", docAlumnoRef.id, "---añadido a bd")
-    } catch(error){
-        console.error("error al añadir el documento", error)
-    }
-    setNombreAlumno("");
-    setPrimerAlumno("");
-    setSegundoAlumno("");
-    setFechaNacimientoAlumno("");
-    setGeneroAlumno("");
-    setMatriculaAlumno("");
-    setGradoAlumno("");
-    setEstatusAlumno("");
-    setCicloEscolarAlumno("");
+        alert("alumno agregado correctamente")
+        } catch(error){
+            console.error("error al añadir el documento", error)
+        }
+        setNombreAlumno("");
+        setPrimerAlumno("");
+        setSegundoAlumno("");
+        setFechaNacimientoAlumno("");
+        setGeneroAlumno("");
+        setMatriculaAlumno("");
+        setGradoAlumno("");
+        setEstatusAlumno("");
+        setCicloEscolarAlumno("");
 
-  }
+    }
 
   return (
     <div className='contenedor'>
@@ -193,139 +197,9 @@ export default function AgregarAlumnoKinder() {
                       />
                   </div>
                 </div>
-                </div>
+                </div><br/>
                 <button onClick={handleOnClickAlumno}>Agregar Alumno</button>                  
         </div>
     </div>
   )
 }
-/*
-<div className="buttonAgregarAlumno">
-                        <button onClick={handleOnClickAlumno}>Agregar Alumno</button>
-                  </div>
-    <div className='nombreCompletoAlumno'>
-              <div className='nombreAlmuno'>
-                  <div>
-                    <label>Nombres</label>
-                  </div>
-                  <div>
-                    <input
-                    type='text'
-                    name='nombres'
-                    value={alumnoData.nombres} 
-                    onChange={handleChangeAlumno}
-                    required
-                    />
-                  </div>
-                </div>
-                
-                <div className='primerApellido'>
-                  <div>
-                      <label>Primer Apellido</label>
-                  </div>
-                  <div className='contenido'>
-                      <input 
-                      type='text'
-                      name='primerApellido'
-                      value={alumnoData.primerApellido}
-                      onChange={handleChangeAlumno}
-                      required
-                      />
-                  </div>
-                </div>
-
-                <div className='segundoApellido'>
-                  <div>
-                      <label>Segundo Apellido</label>
-                  </div>
-                  <div className='contenido'>
-                      <input type='text'
-                      name='segundoApellido'
-                      value={alumnoData.segundoApellido}
-                      onChange={handleChangeAlumno}
-                      required
-                      />
-                  </div>
-                </div>
-            </div>
-            <div className='fechaNacimientoAlumno'>
-              <div className='fechaNacimiento'>
-                  <div>
-                      <label>Fecha Nacimiento</label>
-                  </div>
-                  <div className='contenido'>
-                      <input type='text'
-                      name='fechaNacimiento'
-                      value={alumnoData.fechaNacimiento}
-                      onChange={handleChangeAlumno}
-                      required
-                      />
-                  </div>
-                </div>
-
-                <div className='generoAlumno'>
-                  <div>
-                      <label>Genero</label>
-                  </div>
-                  <div className='contenido'>
-                      <input type='text'
-                      name='genero'
-                      value={alumnoData.genero}
-                      onChange={handleChangeAlumno}
-                      />
-                  </div>
-                </div>
-                <div className='matriculaAlumno'>
-                  <div>
-                      <label>Matricula</label>
-                  </div>
-                  <div className='contenido'>
-                      <input type='text'
-                      name='matricula'
-                      value={alumnoData.matricula}
-                      onChange={handleChangeAlumno}
-                      />
-                  </div>
-                </div>
-                
-            </div>
-            <div className='datosEscolares'>
-                <div className='gradoAlumno'>
-                  <div>
-                      <label>Grado</label>
-                  </div>
-                  <div className='contenido'>
-                      <input type='text'
-                      name='grado'
-                      value={alumnoData.grado}
-                      onChange={handleChangeAlumno}
-                      />
-                  </div>
-                </div>
-                <div className='estatusAlumno'>
-                  <div>
-                      <label>Estatus</label>
-                  </div>
-                  <div className='contenido'>
-                      <input type='text'
-                      name='estatus'
-                      value={alumnoData.estatus}
-                      onChange={handleChangeAlumno}
-                      />
-                  </div>
-                </div>
-                <div className='cicloEscolar'>
-                  <div>
-                      <label>ciclo Escolar</label>
-                  </div>
-                  <div className='contenido'>
-                      <input type='text'
-                      name='cicloEscolar'
-                      value={alumnoData.cicloEscolar}
-                      onChange={handleChangeAlumno}
-                      />
-                  </div>
-                </div>
-
-
-*/
