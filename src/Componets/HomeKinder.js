@@ -14,7 +14,7 @@ export default function HomeKinder() {
   return (
     <div className='contenedorPrincipalHome'>
       <SideBar/>
-      <FormAgregarAlumnoKinder/>
+      <ConstanciaKinder/>
     </div>
   )
 }

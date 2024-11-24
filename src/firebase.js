@@ -1,6 +1,6 @@
 import {initializeApp} from "firebase/app";
-import { getAuth } from "firebase/auth";
-import {getFirestore, collection, addDoc } from "firebase/firestore";
+import {getAuth} from "firebase/auth";
+import {getFirestore} from "firebase/firestore";
 const firebaseConfig = {
     apiKey: "AIzaSyDPUulEmx6VEeO59OjAvjNsCwaxKGzSLqU",
     authDomain: "contanciaskinder.firebaseapp.com",

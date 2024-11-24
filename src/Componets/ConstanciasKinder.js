@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Style/ConstanciasKinder.css';
+import { collection, getDocs, onSnapshot, snapshotEqual } from 'firebase/firestore';
+import { dbKinder } from '../firebase';
 
 
 export default function ConstanciasKinder() {
@@ -17,6 +19,27 @@ export default function ConstanciasKinder() {
     const actualizarContancia = () => {
         alert('contancia actualizada')
     }
+    const eliminarContancia = () => {
+      alert('contancia eliminada')
+    }
+
+
+    const collectionName = "alumnos"
+    const obtenerColeccion = async () => {
+      try {
+        const alumnosRef = collection(dbKinder, "alumnos"); // Referencia a la colección
+        const snapshot = await getDocs(alumnosRef); // Obtiene todos los documentos
+        const datos = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        console.log("Documentos:", datos);
+      } catch (error) {
+        console.error("Error al obtener los datos:", error);
+      }
+    };
+    obtenerColeccion();
+
 
   return (
     <div className='contanciasKinder'>
@@ -40,7 +63,7 @@ export default function ConstanciasKinder() {
           <td>Jesus Alberto Diaz dominguez</td>
           <td><button className='btn-contancia' onClick={verContanciaOnClick}>contancia</button></td>
           <td><button className='btn-contancia' onClick={actualizarContancia}>actualizar</button></td>
-          <td><button className='btn-contancia'>eliminar</button></td>
+          <td><button className='btn-contancia' onClick={eliminarContancia}>eliminar</button></td>
         </tr>
       </tbody>
     </table>
@@ -48,3 +71,22 @@ export default function ConstanciasKinder() {
     </div>
   )
 }
+/*
+
+    useEffect(() => {
+      const fetchAlumnos = async () => {
+        try {
+          const getAlumnosData = collection(dbKinder, collectionName);
+          const snapshotAlumnos = await getDoc(getAlumnosData);
+          const alumnoData = snapshotAlumnos.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }))
+          setAlumnosTablas(alumnoData)
+        } catch (error) {
+          console.error("Error al obtener los alumnos:", error);
+        }
+      }
+      fetchAlumnos();
+    }, []);
+*/
