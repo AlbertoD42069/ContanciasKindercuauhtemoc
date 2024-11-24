@@ -17,14 +17,11 @@ export default function AgregarAlumnoKinder() {
   
   const collectionName = "alumnos"
   const handleOnClickAlumno = async(e) => {
+    {}
     e.preventDefault();
-
-
     const fechaACtual = Date.now()
     const fechaEmisionConstancia = new Date(fechaACtual);
     const fechaLocalEmisionConstancia = fechaEmisionConstancia.toLocaleDateString();
-
-
     if (!nombreAlumno ||
         !primerAlumno ||
         !segundoAlumno ||
@@ -124,7 +121,7 @@ export default function AgregarAlumnoKinder() {
                       <label>Fecha Nacimiento</label>
                   </div>
                   <div className='contenido'>
-                      <input type='text'
+                      <input type='date'
                       name='fechaNacimiento'
                       value={fechaNacimientoAlumno}
                       onChange={(e) => setFechaNacimientoAlumno(e.target.value)}
