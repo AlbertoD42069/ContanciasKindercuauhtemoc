@@ -10,6 +10,7 @@ export default function AgregarAlumnoKinder() {
   const [primerAlumno, setPrimerAlumno] = useState("");
   const [segundoAlumno, setSegundoAlumno] = useState("");
   const [fechaNacimientoAlumno, setFechaNacimientoAlumno] = useState("");
+  const [curpAlumno, setCurpAlumno] = useState("");
   const [generoAlumno, setGeneroAlumno] = useState("");
   const [matriculaAlumno, setMatriculaAlumno] = useState("");
   const [gradoAlumno, setGradoAlumno] = useState("");
@@ -26,6 +27,7 @@ export default function AgregarAlumnoKinder() {
         !primerAlumno ||
         !segundoAlumno ||
         !fechaNacimientoAlumno ||
+        !curpAlumno ||
         !generoAlumno ||
         !matriculaAlumno ||
         !gradoAlumno) {
@@ -42,6 +44,7 @@ export default function AgregarAlumnoKinder() {
         primerApellido: primerAlumno,
         segundoApellido: segundoAlumno,
         fechaNacimiento: fechaNacimientoAlumno,
+        curpAlumno: curpAlumno,
         genero: generoAlumno,
         matricula: matriculaAlumno,
         grado: gradoAlumno,
@@ -56,6 +59,7 @@ export default function AgregarAlumnoKinder() {
         setPrimerAlumno("");
         setSegundoAlumno("");
         setFechaNacimientoAlumno("");
+        setCurpAlumno("");
         setGeneroAlumno("");
         setMatriculaAlumno("");
         setGradoAlumno("");
@@ -142,15 +146,15 @@ export default function AgregarAlumnoKinder() {
                       />
                   </div>
                 </div>
-                <div className='matriculaAlumno'>
+                <div className='curpAlumno'>
                   <div>
-                      <label>Matricula</label>
+                      <label>Curp</label>
                   </div>
                   <div className='contenido'>
                       <input type='text'
-                      name='matricula'
-                      value={matriculaAlumno}
-                      onChange={(e) => setMatriculaAlumno(e.target.value)}
+                      name='curp'
+                      value={curpAlumno}
+                      onChange={(e) => setCurpAlumno(e.target.value)}
                       />
                   </div>
                 </div>
@@ -174,9 +178,21 @@ export default function AgregarAlumnoKinder() {
                       </select>
                   </div>
                 </div>
+                <div className='matriculaAlumno'>
+                  <div>
+                      <label>Matricula</label>
+                  </div>
+                  <div className='contenido'>
+                      <input type='text'
+                      name='matricula'
+                      value={matriculaAlumno}
+                      onChange={(e) => setMatriculaAlumno(e.target.value)}
+                      />
+                  </div>
+                </div>
                 <div className='cicloEscolar'>
                   <div>
-                      <label>ciclo Escolar</label>
+                      <label>Ciclo Escolar</label>
                   </div>
                   <div className='contenido'>
                       <input type='text'

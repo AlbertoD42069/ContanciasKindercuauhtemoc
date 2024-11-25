@@ -23,8 +23,12 @@ export default function ConstanciasKinder() {
       alert('contancia eliminada')
     }
 
-
+    const [collecionAlumnos, setCollecionAlumnos] = useState([]);
     const collectionName = "alumnos"
+
+    useEffect(() => {
+
+    
     const obtenerColeccion = async () => {
       try {
         const alumnosRef = collection(dbKinder, "alumnos"); // Referencia a la colección
@@ -34,11 +38,15 @@ export default function ConstanciasKinder() {
           ...doc.data(),
         }));
         console.log("Documentos:", datos);
+        setCollecionAlumnos(datos);
+        console.log("-----",collecionAlumnos,"----");
+
       } catch (error) {
         console.error("Error al obtener los datos:", error);
       }
     };
     obtenerColeccion();
+    }, []);
 
 
   return (
@@ -55,16 +63,18 @@ export default function ConstanciasKinder() {
     <thead>
         <tr>
           <th>Nombre alumno</th>
-          <th colSpan={3}>Opciones</th>
+          <th colSpan={3}>opciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Jesus Alberto Diaz dominguez</td>
-          <td><button className='btn-contancia' onClick={verContanciaOnClick}>contancia</button></td>
-          <td><button className='btn-contancia' onClick={actualizarContancia}>actualizar</button></td>
-          <td><button className='btn-contancia' onClick={eliminarContancia}>eliminar</button></td>
-        </tr>
+        {collecionAlumnos.map((alumnoTabla) => (
+          <tr key={alumnoTabla.id}>
+            <td className='tituloTabla'>{alumnoTabla.nombres} {alumnoTabla.primerApellido} {alumnoTabla.segundoApellido}</td>
+            <td><button className='btn-contancia' onClick={verContanciaOnClick}>contancia</button></td>
+            <td><button className='btn-contancia' onClick={actualizarContancia}>actualizar</button></td>
+            <td><button className='btn-contancia'>eliminar</button></td>
+          </tr>
+        ))}
       </tbody>
     </table>
     </div>
@@ -72,6 +82,12 @@ export default function ConstanciasKinder() {
   )
 }
 /*
+ <tr>
+          <td>Jesus Alberto Diaz dominguez</td>
+          <td><button className='btn-contancia' onClick={verContanciaOnClick}>contancia</button></td>
+          <td><button className='btn-contancia' onClick={actualizarContancia}>actualizar</button></td>
+          <td><button className='btn-contancia' onClick={eliminarContancia}>eliminar</button></td>
+        </tr>
 
     useEffect(() => {
       const fetchAlumnos = async () => {

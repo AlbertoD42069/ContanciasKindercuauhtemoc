@@ -22,7 +22,7 @@
     text-align: left;
     margin-top: 50px;
 }
-.primerApellido,  .segundoApellido, .generoAlumno, .matriculaAlumno, .estatusAlumno, .cicloEscolar{
+.primerApellido,  .segundoApellido, .curpAlumno, .generoAlumno, .matriculaAlumno, .estatusAlumno, .cicloEscolar{
     margin-left: 5%;
     align-items: center;
 }
