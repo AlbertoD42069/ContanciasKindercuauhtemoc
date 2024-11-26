@@ -2,6 +2,7 @@ import React from 'react';
 import './Style/SideBarKinder.css';
 import { authKinder } from '../firebase';
 import {signOut} from 'firebase/auth';
+import { Link } from "react-router-dom";
 
 
 
@@ -23,12 +24,11 @@ export default function SideBarKinder() {
           <p>CUAUHTEMOC</p>
           <hr/>
         <div className='listaSidebar'>
-          <button className="btn-sideBar" 
-            onClick={registrarAlumno}> 
-            Registrar Alumno 
+          <button className="btn-sideBar" > 
+            <Link to="/"> Registrar Alumno </Link>
           </button>
           <button className="btn-sideBar">
-            Contancias</button>
+            <Link to="contancias">Contancias </Link></button>
           <button className="btn-sideBar" onClick={exit}>
             Cerrar Sesion</button>
           </div>

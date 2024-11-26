@@ -28,7 +28,7 @@
     list-style: none;
     color: white;
   }
-  .btn-sideBar {
+  .btn-sideBar, Link {
     margin-top: 10px;
     height: 40px;
     width: 200px;

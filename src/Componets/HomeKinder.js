@@ -6,6 +6,7 @@ import SideBar from './SideBarKinder.js';
 import ConstanciaKinder from './ConstanciasKinder.js'
 import FormAgregarAlumnoKinder from './FormAgregarAlumnoKinder.js'
 import './Style/Home.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function HomeKinder() {  
     const exit = async () => {
@@ -14,7 +15,10 @@ export default function HomeKinder() {
   return (
     <div className='contenedorPrincipalHome'>
       <SideBar/>
-      <ConstanciaKinder/>
+      <Routes>
+        <Route path='/' element={<FormAgregarAlumnoKinder/>}/>
+        <Route path='contancias' element={<ConstanciaKinder/>}/>
+      </Routes>
     </div>
   )
 }
