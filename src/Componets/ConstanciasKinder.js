@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Style/ConstanciasKinder.css';
 import { collection, getDocs, onSnapshot, snapshotEqual } from 'firebase/firestore';
 import { dbKinder } from '../firebase';
+import {jsPDF} from 'jspdf';
 
 
 export default function ConstanciasKinder() {
@@ -13,25 +14,38 @@ export default function ConstanciasKinder() {
     const searchStudentOnclick = async() => {
         console.log(wantedStudent)
     }
-    const verContanciaOnClick = () => {
-        alert('ver contancias')
-    }
+    
     const actualizarContancia = () => {
         alert('contancia actualizada')
     }
     const eliminarContancia = () => {
       alert('contancia eliminada')
     }
+    
+    
+    
+    const verContanciaOnClick = () => {
+      alert('ver contancias')
+    }
 
     const [collecionAlumnos, setCollecionAlumnos] = useState([]);
     const collectionName = "alumnos"
+    const contanciaAlumnoData = {
+      nombreAlumnoAlumnoConstancia: "",
+      primerAlumnoAlumnoConstancia: "",
+      segundoAlumnoAlumnoConstancia: "", 
+      fechaNacimientoAlumnoAlumnoConstancia: "",
+      curpAlumnoAlumnoConstancia: "", 
+      generoAlumnoAlumnoConstancia: "", 
+      matriculaAlumnoAlumnoConstancia: "", 
+      gradoAlumnoAlumnoConstancia: "", 
+      cicloEscolarAlumnoAlumnoConstancia: "", 
+    }
 
     useEffect(() => {
-
-    
     const obtenerColeccion = async () => {
       try {
-        const alumnosRef = collection(dbKinder, "alumnos"); // Referencia a la colección
+        const alumnosRef = collection(dbKinder, collectionName); // Referencia a la colección
         const snapshot = await getDocs(alumnosRef); // Obtiene todos los documentos
         const datos = snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -41,6 +55,9 @@ export default function ConstanciasKinder() {
         setCollecionAlumnos(datos);
         console.log("-----",collecionAlumnos,"----");
 
+        collecionAlumnos.map((contanciaAlumnoData) => {
+            console.log("nuevo Mapa", contanciaAlumnoData.nombres);
+        });
       } catch (error) {
         console.error("Error al obtener los datos:", error);
       }
