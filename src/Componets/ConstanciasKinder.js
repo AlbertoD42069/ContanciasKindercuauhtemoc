@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Style/ConstanciasKinder.css';
-import { collection, getDocs, onSnapshot, snapshotEqual } from 'firebase/firestore';
+import { collection, getDocs, deleteDoc, doc} from 'firebase/firestore';
 import { dbKinder } from '../firebase';
 import {jsPDF} from 'jspdf';
 import 'jspdf-autotable';
@@ -117,15 +117,14 @@ export default function ConstanciasKinder() {
 
         doc.save(nombreConstanciaSinEspacio);
     }
+    const eliminarAlumno = async (id) => {
+        await deleteDoc(doc(dbKinder, collectionName, id))
+    }
 
   return (
     <div className='contanciasKinder'>
     <div className='tituloKinder'>
         <h3>Constancias Emitidas</h3>
-    </div>
-    <div className='buscarAlumno'>
-        <input type='text'/>
-        <button> buscar alumno </button>
     </div>
     <div className='tablaContancias'>
     <table>
@@ -153,7 +152,8 @@ export default function ConstanciasKinder() {
                 </button>
                 </td>
             <td>
-              <button className='btn-contancia'>
+              <button className='btn-contancia'
+              onClick={()=>eliminarAlumno(alumnoTabla.id)}>
                 eliminar
                 </button>
                 </td>
