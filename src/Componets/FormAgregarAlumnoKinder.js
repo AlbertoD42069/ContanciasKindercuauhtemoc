@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './Style/AgregarAlumno.css';
 import { dbKinder } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
+import Swal from 'sweetalert2';
 
 
 export default function AgregarAlumnoKinder() {
@@ -15,7 +16,7 @@ export default function AgregarAlumnoKinder() {
   const [matriculaAlumno, setMatriculaAlumno] = useState("");
   const [gradoAlumno, setGradoAlumno] = useState("");
   const [cicloEscolarAlumno, setCicloEscolarAlumno] = useState("");
-  
+
   const collectionName = "alumnos"
   const handleOnClickAlumno = async(e) => {
     {}
@@ -31,7 +32,11 @@ export default function AgregarAlumnoKinder() {
         !generoAlumno ||
         !matriculaAlumno ||
         !gradoAlumno) {
-        alert("Por favor, completa todos los campos.");
+          Swal.fire({
+            title: "Advertencia",
+            html: "Campons faltantes, favor de llenar todos los datos",
+            icon: "info"
+          })
         return;
         
     };
@@ -51,9 +56,17 @@ export default function AgregarAlumnoKinder() {
         cicloEscolar: cicloEscolarAlumno,
         fechaEmisionConstancia: fechaLocalEmisionConstancia,
     });
-        alert("alumno agregado correctamente")
+        Swal.fire({
+          title: "Exito",
+          html: `Alumno con matricula: ${matriculaAlumno} agregado`,
+          icon: "success"
+    });
         } catch(error){
-            console.error("error al añadir el documento", error)
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: "Alumno no agregado",
+            });
         }
         setNombreAlumno("");
         setPrimerAlumno("");

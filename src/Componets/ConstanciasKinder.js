@@ -6,6 +6,7 @@ import {jsPDF} from 'jspdf';
 import 'jspdf-autotable';
 import imageSep from './images/SEP_Logo.png';
 import secrtEducacion from './images/secrtEducacion.png';
+import Swal from 'sweetalert2';
 
 export default function ConstanciasKinder() {
     const encabezadoConstancia = {
@@ -120,6 +121,21 @@ export default function ConstanciasKinder() {
     const eliminarAlumno = async (id) => {
         await deleteDoc(doc(dbKinder, collectionName, id))
     }
+    const verDatosAlumno = (alumnoTabla) => {
+      Swal.fire({
+        title: "Datos de alumno",
+        html: `
+              <div>
+                <h4>Nombre completo: ${alumnoTabla.nombres+ ' ' + alumnoTabla.primerApellido + alumnoTabla.segundoApellido}</h4>
+                <h4>Fecha de nacimiento: ${alumnoTabla.fechaNacimiento}</h4>
+                <h4>Curp: ${alumnoTabla.curpAlumno}</h4>
+                <h4>Matricula: ${alumnoTabla.curpAlumno}</h4>
+                <h4>Grado: ${alumnoTabla.grado}</h4>
+                <h4>Ciclo escolar: ${alumnoTabla.cicloEscolar}</h4>
+              </di>
+              `,
+      });
+    }
 
   return (
     <div className='contanciasKinder'>
@@ -130,6 +146,7 @@ export default function ConstanciasKinder() {
     <table>
     <thead>
         <tr>
+          <th>Matricula</th>
           <th>Nombre alumno</th>
           <th colSpan={3}>opciones</th>
         </tr>
@@ -138,23 +155,27 @@ export default function ConstanciasKinder() {
         {collecionAlumnos.map((alumnoTabla) => (
           <tr key={alumnoTabla.id}>
             <td className='tituloTabla'>
+               {alumnoTabla.matricula}
+            </td>
+            <td className='tituloTabla'>
               {alumnoTabla.nombres} {alumnoTabla.primerApellido} {alumnoTabla.segundoApellido} 
             </td>
             <td>
               <button className='btn-contancia' 
-            onClick={() => verContanciaOnClick(alumnoTabla)}>
-              contancia
-              </button>
-              </td>
-            <td>
-              <button className='btn-contancia'>
-                actualizar
+              onClick={() => verDatosAlumno(alumnoTabla)}>
+                Datos de alumno
                 </button>
                 </td>
             <td>
+              <button className='btn-contancia' 
+            onClick={() => verContanciaOnClick(alumnoTabla)}>
+              Descargar constancia
+              </button>
+              </td>
+            <td>
               <button className='btn-contancia'
               onClick={()=>eliminarAlumno(alumnoTabla.id)}>
-                eliminar
+                Eliminar
                 </button>
                 </td>
           </tr>
@@ -165,3 +186,7 @@ export default function ConstanciasKinder() {
     </div>
   )
 }
+/*
+              onClick={() => verDatosAlumno(alumnoTabla)}>
+
+*/

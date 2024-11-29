@@ -207,6 +207,14 @@ export default function AgregarAlumnoKinder() {
 }
 /*
 
+const [numeroConstancia, setNumeroConstancia] = useState(1)
+
+    const numConst = () => {
+        const numConstConsecutivo = String(numeroConstancia).padStart(3,'0');
+        setNumeroConstancia((prev) => prev + 1);
+        console.log(numConstConsecutivo);
+    }
+
                 
                
                 
