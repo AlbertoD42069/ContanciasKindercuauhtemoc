@@ -119,7 +119,20 @@ export default function ConstanciasKinder() {
         doc.save(nombreConstanciaSinEspacio);
     }
     const eliminarAlumno = async (id) => {
-        await deleteDoc(doc(dbKinder, collectionName, id))
+        if (id != '') {
+          await deleteDoc(doc(dbKinder, collectionName, id));
+          Swal.fire({
+            title: "Exito",
+            text: "Alumno Eliminado. Recargue la pagina.",
+            icon: "error"
+          })
+        } else {
+          Swal.fire({
+            title: "Advertencia",
+            html: "Error al eliminar alumno",
+            icon: "info"
+          })
+        }
     }
     const verDatosAlumno = (alumnoTabla) => {
       Swal.fire({
