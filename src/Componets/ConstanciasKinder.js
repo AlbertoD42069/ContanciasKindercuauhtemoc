@@ -7,22 +7,13 @@ import 'jspdf-autotable';
 import imageSep from './images/SEP_Logo.png';
 import secrtEducacion from './images/secrtEducacion.png';
 import Swal from 'sweetalert2';
+/* importado de textos staticos*/
+import { TextosStaticosCostancia } from '../Recursos/TextosEstaticos';
 
 export default function ConstanciasKinder() {
-    const encabezadoConstancia = {
-      secrFederalizada : "SECRETARIA DE EDUCACIÓN FEDERALIZADA",
-      secrIndigena: "SECRETARIA DE EDUCACIÓN INDÍGENA",
-      jefaturaZona: "JEFATURA DE ZONA 704, IXTACOMITAN",
-      zonaEscolar: "ZONA ESCOLAR 401, RAYÓN",
-      nombreKinder: 'JARDÍN DE NIÑAS Y NIÑOS “CUAUHTÉMOC”',
-      claveCentroTrabajo: "C. C. T. 07DCC1395S, RAYÓN",
-      logoAño: ' "2025 año de algo" ',
-      tituloCostancia: "CONTANCIA DE INSCRIPCIÓN",
-    };
     const [collecionAlumnos, setCollecionAlumnos] = useState([]);
     const collectionName = "alumnos"
 
-    
     useEffect(() => {
     const obtenerColeccion = async () => {
       try {
@@ -55,15 +46,15 @@ export default function ConstanciasKinder() {
 
 
         doc.setFontSize(10);
-        doc.text(encabezadoConstancia.secrFederalizada, 105, 15, null, null, alingTextCenter);
-        doc.text(encabezadoConstancia.secrIndigena, 105, 20, null, null, alingTextCenter);
-        doc.text(encabezadoConstancia.jefaturaZona, 105, 25, null, null, alingTextCenter);
-        doc.text(encabezadoConstancia.zonaEscolar, 105, 30, null, null, alingTextCenter);
-        doc.text(encabezadoConstancia.nombreKinder, 105, 35, null, null, alingTextCenter);
-        doc.text(encabezadoConstancia.claveCentroTrabajo, 105, 40, null, null, alingTextCenter);
+        doc.text(TextosStaticosCostancia.secrFederalizada, 105, 15, null, null, alingTextCenter);
+        doc.text(TextosStaticosCostancia.secrIndigena, 105, 20, null, null, alingTextCenter);
+        doc.text(TextosStaticosCostancia.jefaturaZona, 105, 25, null, null, alingTextCenter);
+        doc.text(TextosStaticosCostancia.zonaEscolar, 105, 30, null, null, alingTextCenter);
+        doc.text(TextosStaticosCostancia.nombreKinder, 105, 35, null, null, alingTextCenter);
+        doc.text(TextosStaticosCostancia.claveCentroTrabajo, 105, 40, null, null, alingTextCenter);
 
         doc.setFontSize(20);
-        doc.text(encabezadoConstancia.logoAño, 105, 70, null, null, alingTextCenter);
+        doc.text(TextosStaticosCostancia.logoAño, 105, 70, null, null, alingTextCenter);
 
         doc.setFontSize(25);
         doc.setFont("arial", "normal");
@@ -75,7 +66,7 @@ export default function ConstanciasKinder() {
         const textoAjustadoEmision = doc.splitTextToSize(emisionComst, 180);
         
         doc.setFont("helvetica", "bold");
-        doc.text(encabezadoConstancia.tituloCostancia, 105, 100, null, null, alingTextCenter);
+        doc.text(TextosStaticosCostancia.tituloCostancia, 105, 100, null, null, alingTextCenter);
         doc.autoTable({
           body:[[textoAjustado]],
           startY:108,
@@ -111,10 +102,10 @@ export default function ConstanciasKinder() {
             
         });
         doc.setFontSize(12);
-        doc.text('ATENTAMENTE', 105, 215, null, null, "center");
-        doc.text('__________________________________', 105, 230, null, null, "center");
-        doc.text('Lic. Adela Albina Dominguez Diaz', 105, 235, null, null, "center");
-        doc.text('Directora del jardin de niñas y niños CUAUHTÉMOC', 105, 240, null, null, "center");
+        doc.text(TextosStaticosCostancia.atentamente, 105, 215, null, null, "center");
+        doc.text(TextosStaticosCostancia.linea, 105, 230, null, null, "center");
+        doc.text(TextosStaticosCostancia.nombreDirectora, 105, 235, null, null, "center");
+        doc.text(TextosStaticosCostancia.puesto, 105, 240, null, null, "center");
 
         doc.save(nombreConstanciaSinEspacio);
     }
