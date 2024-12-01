@@ -1,0 +1,18 @@
+import React from "react";
+
+export const ObtenerColeccion = async () => {
+    try {
+      const alumnosRef = collection(dbKinder, collectionName); // Referencia a la colección
+      const snapshot = await getDocs(alumnosRef); // Obtiene todos los documentos
+      const datos = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      /*console.log("Documentos:", datos);
+      setCollecionAlumnos(datos);*/
+      return datos
+
+    } catch (error) {
+      return console.error("Error al obtener los datos:", error);
+    }
+  };
