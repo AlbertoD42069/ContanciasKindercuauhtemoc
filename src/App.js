@@ -1,11 +1,5 @@
 import './App.css';
-/*import { Component } from 'react';
-import {addDoc, collection, getDocs, getFirestore} from 'firebase/firestore/lite';
-import { app } from './firebase';*/
 import React, { useState } from 'react';
-/*import SideBar from './SideBar';
-import InsertAlumno from './ContenConstancia';
-import BuscarAlumno from './BuscarAlumno';*/
 import LoginKinder from './Componets/LoginKinder.js';
 import HomeKinder from './Componets/HomeKinder.js';
 import { appKinder } from './firebase';

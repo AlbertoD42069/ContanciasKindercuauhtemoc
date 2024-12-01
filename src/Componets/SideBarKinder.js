@@ -37,9 +37,3 @@ export default function SideBarKinder() {
   </div>
   )
 }
-/* 
- <ul>
-            <li><a href="RegistrarAlumno">Registrar Alumno</a></li>
-            <li><a href="Contancias">Contancias</a></li>
-            <li><a href="cerrarSesion">Cerrar Sesion</a></li>
-          </ul>*/

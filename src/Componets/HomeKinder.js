@@ -22,11 +22,3 @@ export default function HomeKinder() {
     </div>
   )
 }
-/*
-            <ConstanciaKinder/>
-
-
-        <ConstanciasKinder/>
-<p>bienvenido</p>
-      <button onClick={exit}>Cerrar Sesion</button>
-*/

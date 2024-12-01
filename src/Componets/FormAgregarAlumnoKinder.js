@@ -221,30 +221,3 @@ export default function AgregarAlumnoKinder() {
     </div>
   )
 }
-/*
- <div className='gradoAlumno'>
-                  <div>
-                      <label>Grado</label>
-                  </div>
-                  <div className='contenido'>
-                      <input type='number'
-                      name='grado'
-                      value={gradoAlumno}
-                      onChange={(e) => setGradoAlumno(e.target.value)}
-                      />
-                  </div>
-                </div> 
-
-                <div className='estatusAlumno'>
-                  <div>
-                      <label>Estatus</label>
-                  </div>
-                  <div className='contenido'>
-                      <input type='text'
-                      name='estatus'
-                      value={estatusAlumno}
-                      onChange={(e) => setEstatusAlumno(e.target.value)}
-                      />
-                  </div>
-                </div>
-*/

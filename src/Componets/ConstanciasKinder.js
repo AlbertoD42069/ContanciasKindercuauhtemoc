@@ -199,7 +199,3 @@ export default function ConstanciasKinder() {
     </div>
   )
 }
-/*
-              onClick={() => verDatosAlumno(alumnoTabla)}>
-
-*/
