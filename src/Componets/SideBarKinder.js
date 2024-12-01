@@ -4,15 +4,7 @@ import { authKinder } from '../firebase';
 import {signOut} from 'firebase/auth';
 import { Link } from "react-router-dom";
 
-
-
 export default function SideBarKinder() {
-  const registrarAlumno = () => {
-    alert('presionado')
-  }
-  const contanciasAlumnos = () => {
-    alert('presionado')
-  }
   const exit = async () => {
     await signOut(authKinder);
 }
@@ -37,9 +29,4 @@ export default function SideBarKinder() {
   </div>
   )
 }
-/* 
- <ul>
-            <li><a href="RegistrarAlumno">Registrar Alumno</a></li>
-            <li><a href="Contancias">Contancias</a></li>
-            <li><a href="cerrarSesion">Cerrar Sesion</a></li>
-          </ul>*/
+
