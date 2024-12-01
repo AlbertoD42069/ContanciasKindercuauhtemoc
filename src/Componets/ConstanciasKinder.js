@@ -42,7 +42,6 @@ export default function ConstanciasKinder() {
     obtenerColeccion();
     }, []);
 
-
     const verContanciaOnClick = (alumnoTabla) => {
 
         const alingTextCenter = "center"
