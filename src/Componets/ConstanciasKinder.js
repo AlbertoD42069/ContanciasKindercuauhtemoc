@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './Style/ConstanciasKinder.css';
-import { collection, getDocs, deleteDoc, doc} from 'firebase/firestore';
+import { collection, getDocs} from 'firebase/firestore';
 import { dbKinder } from '../firebase';
 import {jsPDF} from 'jspdf';
 import 'jspdf-autotable';
 import imageSep from './images/SEP_Logo.png';
 import secrtEducacion from './images/secrtEducacion.png';
 import Swal from 'sweetalert2';
+import EliminarAlumnoBtn from './Botones/EliminarAlumnoBtn';
 
 export default function ConstanciasKinder() {
     const encabezadoConstancia = {
@@ -118,22 +119,6 @@ export default function ConstanciasKinder() {
 
         doc.save(nombreConstanciaSinEspacio);
     }
-    const eliminarAlumno = async (id) => {
-        if (id != '') {
-          await deleteDoc(doc(dbKinder, collectionName, id));
-          Swal.fire({
-            title: "Exito",
-            text: "Alumno Eliminado. Recargue la pagina.",
-            icon: "error"
-          })
-        } else {
-          Swal.fire({
-            title: "Advertencia",
-            html: "Error al eliminar alumno",
-            icon: "info"
-          })
-        }
-    }
     const verDatosAlumno = (alumnoTabla) => {
       Swal.fire({
         title: "Datos de alumno",
@@ -149,7 +134,7 @@ export default function ConstanciasKinder() {
               `,
       });
     }
-
+   
   return (
     <div className='contanciasKinder'>
     <div className='tituloKinder'>
@@ -186,11 +171,8 @@ export default function ConstanciasKinder() {
               </button>
               </td>
             <td>
-              <button className='btn-contancia'
-              onClick={()=>eliminarAlumno(alumnoTabla.id)}>
-                Eliminar
-                </button>
-                </td>
+              <EliminarAlumnoBtn idAlumno={alumnoTabla.id}/>
+            </td>
           </tr>
         ))}
       </tbody>
@@ -199,7 +181,3 @@ export default function ConstanciasKinder() {
     </div>
   )
 }
-/*
-              onClick={() => verDatosAlumno(alumnoTabla)}>
-
-*/
