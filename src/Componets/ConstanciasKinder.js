@@ -8,6 +8,7 @@ import imageSep from './images/SEP_Logo.png';
 import secrtEducacion from './images/secrtEducacion.png';
 import Swal from 'sweetalert2';
 import EliminarAlumnoBtn from './Botones/EliminarAlumnoBtn';
+import VerDatosAlumno from './Botones/VerDatosAlumno';
 
 export default function ConstanciasKinder() {
     const encabezadoConstancia = {
@@ -119,22 +120,6 @@ export default function ConstanciasKinder() {
 
         doc.save(nombreConstanciaSinEspacio);
     }
-    const verDatosAlumno = (alumnoTabla) => {
-      Swal.fire({
-        title: "Datos de alumno",
-        html: `
-              <div>
-                <h4>Nombre completo: ${alumnoTabla.nombres+ ' ' + alumnoTabla.primerApellido + alumnoTabla.segundoApellido}</h4>
-                <h4>Fecha de nacimiento: ${alumnoTabla.fechaNacimiento}</h4>
-                <h4>Curp: ${alumnoTabla.curpAlumno}</h4>
-                <h4>Matricula: ${alumnoTabla.curpAlumno}</h4>
-                <h4>Grado: ${alumnoTabla.grado}</h4>
-                <h4>Ciclo escolar: ${alumnoTabla.cicloEscolar}</h4>
-              </di>
-              `,
-      });
-    }
-   
   return (
     <div className='contanciasKinder'>
     <div className='tituloKinder'>
@@ -159,11 +144,8 @@ export default function ConstanciasKinder() {
               {alumnoTabla.nombres} {alumnoTabla.primerApellido} {alumnoTabla.segundoApellido} 
             </td>
             <td>
-              <button className='btn-contancia' 
-              onClick={() => verDatosAlumno(alumnoTabla)}>
-                Datos de alumno
-                </button>
-                </td>
+              <VerDatosAlumno alumnoTabla={alumnoTabla}/>
+            </td>
             <td>
               <button className='btn-contancia' 
             onClick={() => verContanciaOnClick(alumnoTabla)}>
@@ -181,3 +163,9 @@ export default function ConstanciasKinder() {
     </div>
   )
 }
+/*
+<button className='btn-contancia' 
+              onClick={() => verDatosAlumno(alumnoTabla)}>
+                Datos de alumno
+                </button>
+*/
