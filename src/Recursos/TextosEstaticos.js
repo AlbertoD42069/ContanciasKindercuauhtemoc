@@ -11,5 +11,6 @@ export const TextosStaticosCostancia = {
     linea: '__________________________________',
     nombreDirectora: 'Lic. Adela Albina Dominguez Diaz',
     puesto: 'Directora del jardin de niñas y niños CUAUHTÉMOC',
+    emisionComstbd: "Se extiende la presente, para los fines legales que al interesado convenga con fecha de emisión el"
   };
 

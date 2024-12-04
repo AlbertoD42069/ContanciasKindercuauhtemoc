@@ -61,29 +61,20 @@ export default function ConstanciasKinder() {
         const cuerpoConstancia = `Por medio de la presente informo a quien corresponda que el alumno(a) ${alumnoTabla.nombres + alumnoTabla.primerApellido + alumnoTabla.segundoApellido} con matricula ${alumnoTabla.matricula}, nacido el\ ${alumnoTabla.fechaNacimiento} con la curp ${alumnoTabla.curpAlumno}. 
         Esta actualmente INSCRITO en el ${alumnoTabla.grado} del jardin de niñas y niños "CUAUHTÉMOC" con C.C.T 07DCC1395S de educación preescolar del ciclo escolar ${alumnoTabla.cicloEscolar} el cual se encuentra ubicado en la esquina de la Primera Avenida Nte. Ote y Segunda Ote.Nte, Santo Domingo, 29740 Rayón, Chiapas.`;
         
-        const emisionComst = `Se extiende la presente, para los fines legales que al interesado convenga con fecha de emisión el ${alumnoTabla.fechaEmisionConstancia}`;
+
+        const emisionSin = alumnoTabla.fechaEmisionConstancia;
+
+
+        const emisionComst = `${TextosStaticosCostancia.emisionComstbd} ${emisionSin}`;
+
         const textoAjustado = doc.splitTextToSize(cuerpoConstancia, 180);
         const textoAjustadoEmision = doc.splitTextToSize(emisionComst, 180);
         
         doc.setFont("helvetica", "bold");
+        doc.setFontSize(12);
         doc.text(TextosStaticosCostancia.tituloCostancia, 105, 100, null, null, alingTextCenter);
-        doc.autoTable({
-          body:[[textoAjustado]],
-          startY:108,
-          alternateRowStyles: {
-            halign: 'justify', // Alineación horizontal al centro
-            fillColor: null,
-            fontSize: 15, // Tamaño de texto general para la tabla
-            // Sin fondo alternativo para las filas
-          },
-          bodyStyles: {
-            textColor: [0, 0, 0], // Color del texto de las celdas del cuerpo
-          },
-          margin: { 
-            top: 20, left: 30, right: 30, bottom: 10 
-          }, // Márgenes personalizados
-            
-        });
+        const margenderecho = 20
+        doc.text(textoAjustado, 20, 100, null, null, 'justify', -20);
         doc.autoTable({
           body:[[textoAjustadoEmision]],
           startY:180,
