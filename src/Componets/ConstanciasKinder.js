@@ -9,6 +9,7 @@ import secrtEducacion from './images/secrtEducacion.png';
 import Swal from 'sweetalert2';
 import EliminarAlumnoBtn from './Botones/EliminarAlumnoBtn';
 import VerDatosAlumno from './Botones/VerDatosAlumno';
+import GenerarConstanciaAlumno from './Botones/GenerarConstanciaAlumno';
 
 export default function ConstanciasKinder() {
     const encabezadoConstancia = {
@@ -24,7 +25,6 @@ export default function ConstanciasKinder() {
     const [collecionAlumnos, setCollecionAlumnos] = useState([]);
     const collectionName = "alumnos"
 
-    
     useEffect(() => {
     const obtenerColeccion = async () => {
       try {
@@ -43,9 +43,51 @@ export default function ConstanciasKinder() {
     };
     obtenerColeccion();
     }, []);
-
-
-    const verContanciaOnClick = (alumnoTabla) => {
+  return (
+    <div className='contanciasKinder'>
+    <div className='tituloKinder'>
+        <h3>Constancias Emitidas</h3>
+    </div>
+    <div className='tablaContancias'>
+    <table>
+    <thead>
+        <tr>
+          <th>Matricula</th>
+          <th>Nombre alumno</th>
+          <th colSpan={3}>opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {collecionAlumnos.map((alumnoTabla) => (
+          <tr key={alumnoTabla.id}>
+            <td className='tituloTabla'>
+               {alumnoTabla.matricula}
+            </td>
+            <td className='tituloTabla'>
+              {alumnoTabla.nombres} {alumnoTabla.primerApellido} {alumnoTabla.segundoApellido} 
+            </td>
+            <td>
+              <VerDatosAlumno alumnoTabla={alumnoTabla}/>
+            </td>
+            <td>
+              <button className='btn-contancia' 
+            onClick={() => verContanciaOnClick(alumnoTabla)}>
+              Descargar constancia
+              </button>
+              </td>
+            <td>
+              <EliminarAlumnoBtn idAlumno={alumnoTabla.id}/>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    </div>
+    </div>
+  )
+}
+/*
+const verContanciaOnClick = (alumnoTabla) => {
 
         const alingTextCenter = "center"
         const nombreConstancia = alumnoTabla.curpAlumno+"_contancia.pdf";
@@ -120,52 +162,4 @@ export default function ConstanciasKinder() {
 
         doc.save(nombreConstanciaSinEspacio);
     }
-  return (
-    <div className='contanciasKinder'>
-    <div className='tituloKinder'>
-        <h3>Constancias Emitidas</h3>
-    </div>
-    <div className='tablaContancias'>
-    <table>
-    <thead>
-        <tr>
-          <th>Matricula</th>
-          <th>Nombre alumno</th>
-          <th colSpan={3}>opciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {collecionAlumnos.map((alumnoTabla) => (
-          <tr key={alumnoTabla.id}>
-            <td className='tituloTabla'>
-               {alumnoTabla.matricula}
-            </td>
-            <td className='tituloTabla'>
-              {alumnoTabla.nombres} {alumnoTabla.primerApellido} {alumnoTabla.segundoApellido} 
-            </td>
-            <td>
-              <VerDatosAlumno alumnoTabla={alumnoTabla}/>
-            </td>
-            <td>
-              <button className='btn-contancia' 
-            onClick={() => verContanciaOnClick(alumnoTabla)}>
-              Descargar constancia
-              </button>
-              </td>
-            <td>
-              <EliminarAlumnoBtn idAlumno={alumnoTabla.id}/>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-    </div>
-    </div>
-  )
-}
-/*
-<button className='btn-contancia' 
-              onClick={() => verDatosAlumno(alumnoTabla)}>
-                Datos de alumno
-                </button>
 */
