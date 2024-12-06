@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Style/Login.css';
-import LoginBtn from './LoginBtn';
+import LoginForm from './LoginForm';
 
 
 export default function LoginKinder(){
   return (
-    <LoginBtn/> 
+    <LoginForm/> 
   )
 }
