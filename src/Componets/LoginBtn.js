@@ -52,7 +52,7 @@ const LoginBtn = () => {
                         </div>
                     </div>
                     <div className="contenButtonLogin">
-                        <button onClick={() => authKinderUserOnClickPrueba(userKinder, passKinder)}>Iniciar Sesion</button>
+                        <button onClick={() => authKinderUserOnClickPrueba(userKinder, pass)}>Iniciar Sesion</button>
                     </div>
                 </div>
                
