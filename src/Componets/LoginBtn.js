@@ -21,6 +21,10 @@ const LoginBtn = () => {
         alert('Usuario y Contraseña incorrecto favor de verificar')
       }
   }
+  const authKinderUserOnClickPrueba = async (user, pass) => {
+    console.log(user, pass)
+    
+  }
 
   return (
     <div className='contenedorPtincipalLogin'>
@@ -48,7 +52,7 @@ const LoginBtn = () => {
                         </div>
                     </div>
                     <div className="contenButtonLogin">
-                        <button onClick={authKinderUserOnClick}>Iniciar Sesion</button>
+                        <button onClick={() => authKinderUserOnClickPrueba(userKinder, passKinder)}>Iniciar Sesion</button>
                     </div>
                 </div>
                
