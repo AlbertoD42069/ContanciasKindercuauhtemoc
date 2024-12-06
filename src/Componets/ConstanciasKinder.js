@@ -70,11 +70,8 @@ export default function ConstanciasKinder() {
               <VerDatosAlumno alumnoTabla={alumnoTabla}/>
             </td>
             <td>
-              <button className='btn-contancia' 
-            onClick={() => verContanciaOnClick(alumnoTabla)}>
-              Descargar constancia
-              </button>
-              </td>
+            <GenerarConstanciaAlumno alumnoTabla={alumnoTabla}/>
+            </td>
             <td>
               <EliminarAlumnoBtn idAlumno={alumnoTabla.id}/>
             </td>

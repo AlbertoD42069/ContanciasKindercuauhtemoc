@@ -1,10 +1,23 @@
 import React from 'react'
+import jsPDF from 'jspdf';
+import secrtEducacion from '../images/secrtEducacion.png';
+import imageSep from '../images/SEP_Logo.png';
 
 
 const verContanciaOnClick = (alumnoTabla) => {
+    const encabezadoConstancia = {
+        secrFederalizada : "SECRETARIA DE EDUCACIÓN FEDERALIZADA",
+        secrIndigena: "SECRETARIA DE EDUCACIÓN INDÍGENA",
+        jefaturaZona: "JEFATURA DE ZONA 704, IXTACOMITAN",
+        zonaEscolar: "ZONA ESCOLAR 401, RAYÓN",
+        nombreKinder: 'JARDÍN DE NIÑAS Y NIÑOS “CUAUHTÉMOC”',
+        claveCentroTrabajo: "C. C. T. 07DCC1395S, RAYÓN",
+        logoAño: ' "2025 año de algo" ',
+        tituloCostancia: "CONTANCIA DE INSCRIPCIÓN",
+      };
 
     const alingTextCenter = "center"
-    const nombreConstancia = alumnoTabla.curpAlumno+"_contancia.pdf";
+    const nombreConstancia = alumnoTabla.curpalumnoTabla+"_contancia.pdf";
     const nombreConstanciaSinEspacio = nombreConstancia.replace(" ", "");
 
   const doc = new jsPDF();
@@ -25,7 +38,7 @@ const verContanciaOnClick = (alumnoTabla) => {
 
     doc.setFontSize(25);
     doc.setFont("arial", "normal");
-    const cuerpoConstancia = `Por medio de la presente informo a quien corresponda que el alumno(a) ${alumnoTabla.nombres + alumnoTabla.primerApellido + alumnoTabla.segundoApellido} con matricula ${alumnoTabla.matricula}, nacido el\ ${alumnoTabla.fechaNacimiento} con la curp ${alumnoTabla.curpAlumno}. 
+    const cuerpoConstancia = `Por medio de la presente informo a quien corresponda que el alumnoTabla(a) ${alumnoTabla.nombres + alumnoTabla.primerApellido + alumnoTabla.segundoApellido} con matricula ${alumnoTabla.matricula}, nacido el\ ${alumnoTabla.fechaNacimiento} con la curp ${alumnoTabla.curpalumnoTabla}. 
     Esta actualmente INSCRITO en el ${alumnoTabla.grado} del jardin de niñas y niños "CUAUHTÉMOC" con C.C.T 07DCC1395S de educación preescolar del ciclo escolar ${alumnoTabla.cicloEscolar} el cual se encuentra ubicado en la esquina de la Primera Avenida Nte. Ote y Segunda Ote.Nte, Santo Domingo, 29740 Rayón, Chiapas.`;
     
     const emisionComst = `Se extiende la presente, para los fines legales que al interesado convenga con fecha de emisión el ${alumnoTabla.fechaEmisionConstancia}`;
@@ -77,13 +90,14 @@ const verContanciaOnClick = (alumnoTabla) => {
     doc.save(nombreConstanciaSinEspacio);
 }
 
-const GenerarConstanciaAlumno = () => {
+const GenerarConstanciaalumnoTabla = (alumnoTablaTabla) => {
 
   return (
-    <div>
-      
-    </div>
+    <button className='btn-contancia'
+    onClick={()=>verContanciaOnClick(alumnoTablaTabla)}>
+      Eliminar
+      </button>
   )
 }
 
-export default GenerarConstanciaAlumno
+export default GenerarConstanciaalumnoTabla
