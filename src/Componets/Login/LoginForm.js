@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import './Style/Login.css';
+import '../Login/Login.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { authKinder } from '../../firebase';
+import LoginBtn from './LoginBtn';
 
 const LoginForm = () => {
 
@@ -12,7 +13,7 @@ const LoginForm = () => {
     setUserKinder(e.target.value);
   }
   const authKinderPassOnChange = (e) => {
-    setPassKinder(e.target.value);
+    setPassKinder(e.target.value);      
   }
   
   return (
@@ -40,6 +41,8 @@ const LoginForm = () => {
                             <input type='password' value={passKinder} onChange={authKinderPassOnChange}/>
                         </div>
                     </div>
+
+                    <LoginBtn user={userKinder} pass={passKinder}/>
                   
                 </div>
                

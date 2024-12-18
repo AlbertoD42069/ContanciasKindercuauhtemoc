@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 /*import SideBar from './SideBar';
 import InsertAlumno from './ContenConstancia';
 import BuscarAlumno from './BuscarAlumno';*/
-import LoginKinder from './Componets/LoginKinder.js';
+import LoginKinder from './Componets/Login/LoginKinder.js';
 import HomeKinder from './Componets/HomeKinder.js';
 import { appKinder } from './firebase';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
