@@ -5,6 +5,8 @@ import HomeKinder from './Componets/HomeKinder.js';
 import { onAuthStateChanged } from 'firebase/auth';
 import { authKinder } from './firebase';
 import LoginKC from './NewGUIKinder/LoginKC.js';
+import Container from 'react-bootstrap/Container';
+
 
 function App(){
 
