@@ -6,6 +6,7 @@ import '../Componets/Style/Login.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { authKinder } from '../firebase';
 import Swal from 'sweetalert2';
+import { TextLoginStatic } from './Resources/TextsKC';
 
 
 const LoginKC = () => {
@@ -34,17 +35,17 @@ const LoginKC = () => {
     <div className='contenedorPtincipalLogin'>
     <div className='contenedorLogin'>
     <div className='IniciarSesionTitulo'>
-      <h3>INICIAR SESION</h3>
+      <h3>{TextLoginStatic.titulo}</h3>
     </div><br/>
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder="Email" value={userKC} onChange={authKinderUserOnChange}/>
+        <Form.Control type="email" placeholder={TextLoginStatic.email} value={userKC} onChange={authKinderUserOnChange}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Control type="password" placeholder="Contraseña" value={passKC} onChange={authKinderPassOnChange}/>
+        <Form.Control type="password" placeholder={TextLoginStatic.contraseña} value={passKC} onChange={authKinderPassOnChange}/>
       </Form.Group><br/>
       <Button variant="primary" onClick={authKinderUserOnClick}>
-        Iniciar Sesion
+        {TextLoginStatic.btnTitulo}
       </Button>
     </Form>
     </div>
