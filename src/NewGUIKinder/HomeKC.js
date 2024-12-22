@@ -3,6 +3,7 @@ import NavbarKC from './NavBarKC';
 import Container from 'react-bootstrap/Container';
 import '../Componets/Style/Home.css';
 import AddStudentKC from './AddStudentKC';
+import CertificatesKC from './CertificatesKC';
 
 
 const HomeKC = () => {
@@ -10,6 +11,7 @@ const HomeKC = () => {
     <div>
         <NavbarKC/>
         <AddStudentKC/>
+        <CertificatesKC/>
     </div>
         
   )
