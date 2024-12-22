@@ -4,3 +4,23 @@
     height: 100%;
     width: 100%;
 }
+.Container {
+    padding-top: 50px;
+}
+.FormAddStudent {
+    font-size: 25px;
+}
+.InputText {
+    height: 40px;
+}
+.CicloEscolar {
+    padding-bottom: 50px;
+}
+.AddBtn {
+    width: 360px;
+    height: 60px;
+    font-size: 100px;
+}
+.TituloAddStudent {
+    padding-bottom: 50px;
+}

@@ -6,6 +6,9 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { authKinder } from './firebase';
 import LoginKC from './NewGUIKinder/LoginKC.js';
 import Container from 'react-bootstrap/Container';
+import HomeKC from './NewGUIKinder/HomeKC.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 function App(){
@@ -20,18 +23,21 @@ function App(){
     }
   });
   return (
-  <div className="App">
-    <header className="App-header">
-      <div className='ContenedorPrincipal'>
-        <LoginKC/>
-      </div>
-      
-    </header>
+  <div>
+    <HomeKC/>
   </div>
   );
 }
 export default App;
 /*
+
+<div className="App">
+    <header className="App-header">
+
+        <HomeKC/>
+      
+    </header>
+  </div>
 
 {
           userKinder ? <HomeKinder userKinderlogin = {userKinder.email}/> : <LoginKinder/>
