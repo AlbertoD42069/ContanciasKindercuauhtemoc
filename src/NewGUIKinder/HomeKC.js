@@ -1,19 +1,20 @@
 import React from 'react'
 import NavbarKC from './NavBarKC';
-import Container from 'react-bootstrap/Container';
 import '../Componets/Style/Home.css';
 import AddStudentKC from './AddStudentKC';
 import CertificatesKC from './CertificatesKC';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 const HomeKC = () => {
   return (
     <div>
         <NavbarKC/>
-        <AddStudentKC/>
-        <CertificatesKC/>
-    </div>
-        
+        <Routes>
+          <Route path='/'element={<AddStudentKC/>}/>
+          <Route path='certificate' element={<CertificatesKC/>}/>
+        </Routes>
+    </div>     
   )
 }
 

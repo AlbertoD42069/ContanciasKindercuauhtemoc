@@ -10,6 +10,7 @@ export const TextFormStatic  = {
     primerApellido: 'Primer apellido',
     segundoApellido: 'Segundo apellido',
     fechaNacimiento: 'Fecha nacimiento',
+    curp: 'Curp',
     grado: 'Grado',
     matricula: 'Matricula',
     cicloEscolar: 'Ciclo escolar',

@@ -47,3 +47,10 @@
   .sidebar ul li a:hover {
     display: block;
   }
+  Button{
+    width: 60px;
+  }
+  .navItem{
+    justify-content: center;
+    align-items: center;
+  }

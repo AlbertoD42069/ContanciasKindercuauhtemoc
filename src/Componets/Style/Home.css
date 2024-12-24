@@ -13,6 +13,9 @@
 .InputText {
     height: 40px;
 }
+.InputTextGrade {
+    height: 40px;
+}
 .CicloEscolar {
     padding-bottom: 50px;
 }
