@@ -4,13 +4,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import '../Componets/Style/SideBarKinder.css';
 import Button from 'react-bootstrap/Button';
+import LogoutBtn from './ButtonsKC/LogoutBtn';
 
-
-
-const exit = async () => {
-  console.log('has salido');
-  
-}
 export default function NavbarKC() {
   return (
     <>
@@ -20,7 +15,7 @@ export default function NavbarKC() {
           <Nav className="navItem justify-content-end">
             <Nav.Link href='/'>{'Registrar Alumno'}</Nav.Link>
             <Nav.Link href='certificate'>{'Constancias'}</Nav.Link>
-            <Nav.Link><Button variant="danger" onClick={exit}>Salir</Button></Nav.Link>
+            <Nav.Link><LogoutBtn/></Nav.Link>
           </Nav>
         </Container>
       </Navbar>

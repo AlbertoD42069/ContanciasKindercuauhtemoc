@@ -12,13 +12,7 @@ import { TextLoginStatic } from './Resources/TextsKC';
 const LoginKC = () => {
    const [userKC, setUserKC] = useState('');
     const [passKC, setPassKC] = useState('');
-
-    const authKinderUserOnChange = (e) => {
-          setUserKC(e.target.value);
-      }
-      const authKinderPassOnChange = (e) => {
-          setPassKC(e.target.value);
-      }
+    
       const authKinderUserOnClick = async () => {
           console.log(userKC,passKC);
           try {
@@ -39,10 +33,17 @@ const LoginKC = () => {
     </div><br/>
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder={TextLoginStatic.email} value={userKC} onChange={authKinderUserOnChange}/>
+        <Form.Control 
+        type="email" 
+        placeholder={TextLoginStatic.email}
+        value={userKC} 
+        onChange={(e) => setUserKC(e.target.value)}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Control type="password" placeholder={TextLoginStatic.contraseña} value={passKC} onChange={authKinderPassOnChange}/>
+        <Form.Control 
+        type="password" 
+        placeholder={TextLoginStatic.contraseña} 
+        value={passKC} onChange={(e) => setPassKC(e.target.value)}/>
       </Form.Group><br/>
       <Button variant="primary" onClick={authKinderUserOnClick}>
         {TextLoginStatic.btnTitulo}

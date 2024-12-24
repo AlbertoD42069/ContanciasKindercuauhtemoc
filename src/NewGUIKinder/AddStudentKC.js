@@ -7,8 +7,7 @@ import Row from 'react-bootstrap/Row';
 import { Container } from 'react-bootstrap';
 import '../Componets/Style/Home.css';
 import { TextFormStatic } from './Resources/TextsKC';
-
-
+ 
 const AddStudentKC = () => {
 
     const collectionName = "alumnos"
@@ -143,12 +142,15 @@ const AddStudentKC = () => {
       </Form.Group>
     </Row>
 
-    <div class="text-center">
-    <Button onClick={addStudentKC} className='AddBtn'size="lg">{TextFormStatic.btnTitulo}</Button>
-    </div>
+   
   </Form>
   </Container>
   )
 }
 
 export default AddStudentKC;    
+/*
+ <div class="text-center">
+    <Button onClick={addStudentKC} className='AddBtn'size="lg">{TextFormStatic.btnTitulo}</Button>
+    </div>
+*/
