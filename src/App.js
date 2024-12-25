@@ -1,11 +1,8 @@
 import './App.css';
 import React, { useState } from 'react';
-import LoginKinder from './Componets/LoginKinder.js';
-import HomeKinder from './Componets/HomeKinder.js';
 import { onAuthStateChanged } from 'firebase/auth';
 import { authKinder } from './firebase';
 import LoginKC from './NewGUIKinder/LoginKC.js';
-import Container from 'react-bootstrap/Container';
 import HomeKC from './NewGUIKinder/HomeKC.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,8 +20,10 @@ function App(){
     }
   });
   return (
-  <div>
-    <HomeKC/>
+  <div className='App'>
+    {
+      userKinder ? <HomeKC userKinderlogin = {userKinder.email}/> : <LoginKC/>
+    }
   </div>
   );
 }

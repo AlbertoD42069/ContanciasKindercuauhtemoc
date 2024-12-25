@@ -1,7 +1,7 @@
 import React from 'react';
 import './Style/SideBarKinder.css';
-import { authKinder } from '../firebase';
-import {signOut} from 'firebase/auth';
+/*import { authKinder } from '../firebase';
+import {signOut} from 'firebase/auth';*/
 import { Link } from "react-router-dom";
 
 
@@ -14,7 +14,8 @@ export default function SideBarKinder() {
     alert('presionado')
   }
   const exit = async () => {
-    await signOut(authKinder);
+    /*
+    await signOut(authKinder)*/;
 }
   return (
     <div className="sidebarKinder">

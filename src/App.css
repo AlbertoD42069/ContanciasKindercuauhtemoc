@@ -1,40 +1,10 @@
 .App {
   text-align: center;
-}
-
-.App-header {
-  background-color: #ffffff;
+  background-color:rgb(218, 218, 218);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /*align-items: left;*/
-  /*justify-content: top;*/
-  font-size: calc(10px + 2vmin);
-  color: white;
-  /*text-align: left;*/
-}
-
-.App-link {
-  color: #61dafb;
-}
-.ContenedorPrincipal{
-  display: flex;
-  width: 205vh;
-  height: 100vh;
-  color: #000;
-}
-
-.ContenedorSideBar {
-  background-color: rgb(34, 37, 37);
-  width: 20%;
-  height: 100vh;
-}
-
-.ContenedorContancias{
-  background-color: rgb(53, 58, 56);
-  width: 95%;
-  height: 100vh;
-  text-align: center;
+  font-style:normal ;
 }
 
 

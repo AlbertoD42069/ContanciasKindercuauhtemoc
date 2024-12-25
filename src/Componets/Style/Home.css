@@ -1,11 +1,12 @@
-.contenedorPrincipalHome {
+/*.contenedorPrincipalHome {
     align-items: normal;
     display: flex;
     height: 100%;
     width: 100%;
-}
+}*/
+
 .Container {
-    padding-top: 50px;
+    padding-top: 0px;
 }
 .FormAddStudent {
     font-size: 25px;
@@ -24,6 +25,6 @@
     height: 60px;
     font-size: 100px;
 }
-.TituloAddStudent {
+/*.TituloAddStudent {
     padding-bottom: 50px;
-}
+}*/

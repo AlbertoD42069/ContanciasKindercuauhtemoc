@@ -47,7 +47,7 @@
   .sidebar ul li a:hover {
     display: block;
   }
-  Button{
+  .btnExit{
     width: 60px;
   }
   .navItem{

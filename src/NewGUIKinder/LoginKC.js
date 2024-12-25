@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { authKinder } from '../firebase';
 import Swal from 'sweetalert2';
 import { TextLoginStatic } from './Resources/TextsKC';
+import '../Componets/Style/Home.css';
 
 
 const LoginKC = () => {
@@ -26,32 +27,34 @@ const LoginKC = () => {
           }
       }
   return (
-    <div className='contenedorPtincipalLogin'>
-    <div className='contenedorLogin'>
-    <div className='IniciarSesionTitulo'>
-      <h3>{TextLoginStatic.titulo}</h3>
-    </div><br/>
+    <div className='content'>
     <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+    <div className='iniciarSesionTitulo'>
+      <h1>{TextLoginStatic.titulo}</h1>
+    </div>
+      <Form.Group className="mb-4" controlId="formBasicEmail">
         <Form.Control 
         type="email" 
         placeholder={TextLoginStatic.email}
         value={userKC} 
-        onChange={(e) => setUserKC(e.target.value)}/>
+        onChange={(e) => setUserKC(e.target.value)}
+        className='inputKCs'
+        />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Group className="mb-4" controlId="formBasicPassword">
         <Form.Control 
         type="password" 
         placeholder={TextLoginStatic.contraseña} 
-        value={passKC} onChange={(e) => setPassKC(e.target.value)}/>
-      </Form.Group><br/>
-      <Button variant="primary" onClick={authKinderUserOnClick}>
+        value={passKC} 
+        onChange={(e) => setPassKC(e.target.value)}
+        className='inputKCs'
+        />
+      </Form.Group>
+      <Button variant="primary" className='btnLogin' onClick={authKinderUserOnClick}>
         {TextLoginStatic.btnTitulo}
       </Button>
     </Form>
     </div>
-</div>
-
   )
 }
 

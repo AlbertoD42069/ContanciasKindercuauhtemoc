@@ -5,6 +5,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import '../Componets/Style/SideBarKinder.css';
 import Button from 'react-bootstrap/Button';
 import LogoutBtn from './ButtonsKC/LogoutBtn';
+import { authKinder } from '../firebase';
+
 
 export default function NavbarKC() {
   return (
@@ -15,7 +17,7 @@ export default function NavbarKC() {
           <Nav className="navItem justify-content-end">
             <Nav.Link href='/'>{'Registrar Alumno'}</Nav.Link>
             <Nav.Link href='certificate'>{'Constancias'}</Nav.Link>
-            <Nav.Link><LogoutBtn/></Nav.Link>
+            <Nav.Link><LogoutBtn authKC={authKinder}/></Nav.Link>
           </Nav>
         </Container>
       </Navbar>
