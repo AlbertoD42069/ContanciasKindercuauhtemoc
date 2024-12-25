@@ -1,5 +1,5 @@
 export const TextLoginStatic = {
-    titulo: 'INICIAR SESION',
+    titulo: 'Iniciar Sesion',
     email: 'Email',
     contraseña: 'Contraseña',
     btnTitulo: 'Iniciar Sesion',

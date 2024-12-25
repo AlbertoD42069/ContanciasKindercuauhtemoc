@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../Componets/Style/Login.css';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../Componets/Style/Login.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -8,30 +7,18 @@ import { authKinder } from '../firebase';
 import Swal from 'sweetalert2';
 import { TextLoginStatic } from './Resources/TextsKC';
 import '../Componets/Style/Home.css';
+import LoginKCBtn from './ButtonsKC/LoginKCBtn';
 
 
 const LoginKC = () => {
    const [userKC, setUserKC] = useState('');
     const [passKC, setPassKC] = useState('');
-    
-      const authKinderUserOnClick = async () => {
-          console.log(userKC,passKC);
-          try {
-          await signInWithEmailAndPassword(authKinder, userKC, passKC);
-          } catch (err) {
-            Swal.fire({
-              title: "Error de usuario",
-              text: "Revise usuario y contraseña",
-              icon: "question"
-            });
-          }
-      }
   return (
     <div className='content'>
     <Form>
     <div className='iniciarSesionTitulo'>
       <h1>{TextLoginStatic.titulo}</h1>
-    </div>
+    </div><br/>
       <Form.Group className="mb-4" controlId="formBasicEmail">
         <Form.Control 
         type="email" 
@@ -48,11 +35,9 @@ const LoginKC = () => {
         value={passKC} 
         onChange={(e) => setPassKC(e.target.value)}
         className='inputKCs'
-        />
+        /><br/>
       </Form.Group>
-      <Button variant="primary" className='btnLogin' onClick={authKinderUserOnClick}>
-        {TextLoginStatic.btnTitulo}
-      </Button>
+        <LoginKCBtn user={userKC} pass={passKC}/>
     </Form>
     </div>
   )
