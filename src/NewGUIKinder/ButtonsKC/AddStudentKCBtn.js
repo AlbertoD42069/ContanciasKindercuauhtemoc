@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 
-const AddStrudentKCBtn = () => {
+const AddStudentKCBtn = () => {
   return (
     <div class="text-center">
     <Button className='AddBtn'size="lg">{TextFormStatic.btnTitulo}</Button>
@@ -9,4 +9,4 @@ const AddStrudentKCBtn = () => {
   )
 }
 
-export default AddStrudentKCBtn
+export default AddStudentKCBtn

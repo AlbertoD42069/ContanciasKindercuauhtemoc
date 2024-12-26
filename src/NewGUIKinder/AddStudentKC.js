@@ -1,32 +1,30 @@
 import React from 'react'
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { Container } from 'react-bootstrap';
 import '../Componets/Style/Home.css';
 import { TextFormStatic } from './Resources/TextsKC';
- 
+import Button from 'react-bootstrap/Button';
+import { dbKinder } from '../firebase';
+import { collection, addDoc } from "firebase/firestore";
+import { campoFaltante, studentAddedSuccessfully, errorAddStudent } from './Alerts/AlertsHomeKC';
+
 const AddStudentKC = () => {
 
     const collectionName = "alumnos"
+    const alumnoCollectionRef = collection(dbKinder, collectionName);    
 
-      const [name, setName] = useState("");
-      const [lastName, setLastName] = useState("");
-      const [secondLastNname, setSecondLastName] = useState("");
-      const [dateOfBirth, setDateOfBirth] = useState("");
-      const [studentCurp, setStudentCurp] = useState("");
-      const [studentEnrollerd, setStudentEnrollerd] = useState("");
-      const [studentGrade, setStudentGrade] = useState("");
-      const [schoolYearStudent, setSchoolYearStudent] = useState("");
+    const [name, setName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [secondLastNname, setSecondLastName] = useState("");
+    const [dateOfBirth, setDateOfBirth] = useState("");
+    const [studentCurp, setStudentCurp] = useState("");
+    const [studentEnrollerd, setStudentEnrollerd] = useState("");
+    const [studentGrade, setStudentGrade] = useState("");
+    const [schoolYearStudent, setSchoolYearStudent] = useState("");
     
-    const issueDate = () => {
-        const dateNow = Date.now();
-        const issueDateCost = new Date(dateNow);
-        const issueDateLocalConst = issueDateCost.toLocaleDateString();
-        return issueDateLocalConst
-    }
     const clearInput = () => {
       setName("");
       setLastName("");
@@ -36,7 +34,6 @@ const AddStudentKC = () => {
       setStudentEnrollerd("");
       setStudentGrade("");
       setSchoolYearStudent("");
-      console.log('Formulario Limpiado')
     }
     const inputName = (e) => {
       const firtLetterCapital = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
@@ -51,18 +48,41 @@ const AddStudentKC = () => {
       const firtLetterCapital = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
       setSecondLastName(firtLetterCapital)
     }
+    const issueDate = () => {
+      const dateNow = Date.now();
+      const issueDateCost = new Date(dateNow);
+      const issueDateLocalConst = issueDateCost.toLocaleDateString();
+      return issueDateLocalConst
+  }
+    
     const addStudentKC = async(e) => {
-      const dateCost = issueDate();
-      console.log(dateCost)
-      console.log(name, lastName,secondLastNname,dateOfBirth,studentCurp,studentEnrollerd,studentGrade,schoolYearStudent)
+      e.preventDefault();
+    
+      const issueDateConts = issueDate();
+      if (!name || !lastName || !secondLastNname || !dateOfBirth || 
+          !studentCurp || !studentEnrollerd || !studentGrade ||  !schoolYearStudent) 
+          {
+          campoFaltante();
+          return;
+        }
+        try {
+          const docAlumnoRef = await addDoc(alumnoCollectionRef, {
+            nombres: name, primerApellido: lastName, segundoApellido: secondLastNname, fechaNacimiento: dateOfBirth,
+            matricula: studentEnrollerd, curp: studentCurp, grado: studentGrade, cicloEscolar: schoolYearStudent,
+            fechaExpedicion: issueDateConts,
+        });
+        studentAddedSuccessfully(name, lastName, secondLastNname);        
+        } catch (error) {
+          errorAddStudent();
+        }
       clearInput();
     }
     
   return (
-    <Container className='Container'>
+    <Container className='Container'><br/>
         <div className='TituloAddStudent'>
             <h1  className='text-center'>{TextFormStatic.titulo}</h1>
-        </div>
+        </div><br/>
     <Form className='FormAddStudent'>
     <Row className="mb-4">
       <Form.Group as={Col} md="4" controlId="validationCustom01">
@@ -114,6 +134,7 @@ const AddStudentKC = () => {
         className='InputText'
         required 
         value={studentCurp}
+        maxlength="18"
         onChange={(e)=> setStudentCurp(e.target.value.toUpperCase())}
         />
       </Form.Group>
@@ -152,22 +173,11 @@ const AddStudentKC = () => {
         onChange={(e)=>setSchoolYearStudent(e.target.value)}
         />
       </Form.Group>
-    </Row>
-
-   
+    </Row><br/>
+    <Button className='AddBtn'size="lg" onClick={addStudentKC}>{TextFormStatic.btnTitulo}</Button>
   </Form>
   </Container>
   )
 }
 
-export default AddStudentKC;    
-/*
- <div class="text-center">
-    <Button onClick={addStudentKC} className='AddBtn'size="lg">{TextFormStatic.btnTitulo}</Button>
-    </div>
-*/
-/*
-(e) => setName(e.target.value.charAt(0).toUpperCase() + 
-            e.target.value.slice(1),
-            e.target.value.toLowerCase().replace(/\b\w/g,(char)=>char.toUpperCase()))
-*/
+export default AddStudentKC;
