@@ -38,13 +38,26 @@ const AddStudentKC = () => {
       setSchoolYearStudent("");
       console.log('Formulario Limpiado')
     }
+    const inputName = (e) => {
+      const firtLetterCapital = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
+      const letterCapital = firtLetterCapital.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase())
+      setName(letterCapital)
+    }
+    const inputLastName = (e) => {
+      const firtLetterCapital = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
+      setLastName(firtLetterCapital)
+    }
+    const inputSecondLastName = (e) => {
+      const firtLetterCapital = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
+      setSecondLastName(firtLetterCapital)
+    }
     const addStudentKC = async(e) => {
       const dateCost = issueDate();
       console.log(dateCost)
       console.log(name, lastName,secondLastNname,dateOfBirth,studentCurp,studentEnrollerd,studentGrade,schoolYearStudent)
       clearInput();
-
     }
+    
   return (
     <Container className='Container'>
         <div className='TituloAddStudent'>
@@ -59,7 +72,7 @@ const AddStudentKC = () => {
           type="text"
           className='InputText'
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={inputName}
         />
       </Form.Group>
       <Form.Group as={Col} md="4" controlId="validationCustom02">
@@ -69,8 +82,7 @@ const AddStudentKC = () => {
           type="text"
           className='InputText'
           value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-
+          onChange={inputLastName}
         />
       </Form.Group>
       <Form.Group as={Col} md="4" controlId="validationCustom02">
@@ -80,7 +92,7 @@ const AddStudentKC = () => {
           type="text"
           className='InputText'
           value={secondLastNname}
-          onChange={(e) => setSecondLastName(e.target.value)}
+          onChange={inputSecondLastName}
         />
       </Form.Group>
     </Row>
@@ -102,7 +114,7 @@ const AddStudentKC = () => {
         className='InputText'
         required 
         value={studentCurp}
-        onChange={(e)=> setStudentCurp(e.target.value)}
+        onChange={(e)=> setStudentCurp(e.target.value.toUpperCase())}
         />
       </Form.Group>
       <Form.Group as={Col} md="4" controlId="validationCustom05">
@@ -112,7 +124,7 @@ const AddStudentKC = () => {
         className='InputText'
         required 
         value={studentEnrollerd}
-        onChange={(e)=> setStudentEnrollerd(e.target.value)}
+        onChange={(e)=> setStudentEnrollerd(e.target.value.toUpperCase())}
         />
       </Form.Group>
     </Row>
@@ -153,4 +165,9 @@ export default AddStudentKC;
  <div class="text-center">
     <Button onClick={addStudentKC} className='AddBtn'size="lg">{TextFormStatic.btnTitulo}</Button>
     </div>
+*/
+/*
+(e) => setName(e.target.value.charAt(0).toUpperCase() + 
+            e.target.value.slice(1),
+            e.target.value.toLowerCase().replace(/\b\w/g,(char)=>char.toUpperCase()))
 */

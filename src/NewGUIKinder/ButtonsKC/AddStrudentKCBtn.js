@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 
-
 const AddStrudentKCBtn = () => {
   return (
     <div class="text-center">

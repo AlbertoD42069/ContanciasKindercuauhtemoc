@@ -23,7 +23,8 @@ const LoginKCBtn = (props) => {
         <Button 
         variant="primary" 
         className='btnLogin'
-        onClick={login}>
+        onClick={login} 
+        >
         {TextLoginStatic.btnTitulo}
       </Button>
     </div>
