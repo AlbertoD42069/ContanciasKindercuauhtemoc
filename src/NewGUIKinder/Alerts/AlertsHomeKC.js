@@ -9,7 +9,7 @@ export const campoFaltante = () => {
   });
 }
 export const studentAddedSuccessfully = (name, lastName, secondLastNname) => {
-  const nameStudent = name + lastName + secondLastNname
+  const nameStudent = name + ' ' + lastName + ' ' +  secondLastNname
   Swal.fire({
     title: "¡Exito!",
     html: `Alumno con matricula: ${nameStudent} agregado`,
@@ -22,10 +22,4 @@ export const errorAddStudent = () => {
     title: "Error",
     text: "Alumno no agregado",
   });
-}
-export const inputName = (e) => {
-  const firtLetterCapital = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
-  const letterCapital = firtLetterCapital.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase())
-  /*setName(letterCapital)*/
-  return letterCapital
 }

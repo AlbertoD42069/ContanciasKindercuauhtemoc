@@ -10,6 +10,8 @@ import Button from 'react-bootstrap/Button';
 import { dbKinder } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 import { campoFaltante, studentAddedSuccessfully, errorAddStudent } from './Alerts/AlertsHomeKC';
+import { issueDate } from './GetDate/GetDateFunc';
+import { issueTime } from './GetDate/GetDateFunc';
 
 const AddStudentKC = () => {
 
@@ -48,17 +50,12 @@ const AddStudentKC = () => {
       const firtLetterCapital = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
       setSecondLastName(firtLetterCapital)
     }
-    const issueDate = () => {
-      const dateNow = Date.now();
-      const issueDateCost = new Date(dateNow);
-      const issueDateLocalConst = issueDateCost.toLocaleDateString();
-      return issueDateLocalConst
-  }
     
     const addStudentKC = async(e) => {
       e.preventDefault();
     
       const issueDateConts = issueDate();
+      const issueTimeConts = issueTime();
       if (!name || !lastName || !secondLastNname || !dateOfBirth || 
           !studentCurp || !studentEnrollerd || !studentGrade ||  !schoolYearStudent) 
           {
@@ -69,7 +66,7 @@ const AddStudentKC = () => {
           const docAlumnoRef = await addDoc(alumnoCollectionRef, {
             nombres: name, primerApellido: lastName, segundoApellido: secondLastNname, fechaNacimiento: dateOfBirth,
             matricula: studentEnrollerd, curp: studentCurp, grado: studentGrade, cicloEscolar: schoolYearStudent,
-            fechaExpedicion: issueDateConts,
+            fechaExpedicion: issueDateConts, horaExpedicion: issueTimeConts,
         });
         studentAddedSuccessfully(name, lastName, secondLastNname);        
         } catch (error) {

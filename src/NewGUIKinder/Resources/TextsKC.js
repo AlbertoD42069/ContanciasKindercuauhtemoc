@@ -23,8 +23,8 @@ export const TextCertificatesKC = {
     curp: 'Curp',
     accionesConstancia: 'Acciones constancia',
     imprimir: 'Imprimir',
-    verDatosAlumno: 'Datos alumnos',
-    eliminar: 'Eliminar Alumno',
+    verDatosAlumno: 'ver datos',
+    eliminar: 'Eliminar',
 }
 export const TextosStaticosCostancia = {
     secrFederalizada : "SECRETARIA DE EDUCACIÓN FEDERALIZADA",
