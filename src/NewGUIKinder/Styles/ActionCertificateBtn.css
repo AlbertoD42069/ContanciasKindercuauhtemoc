@@ -1,0 +1,7 @@
+.printCertificate, .viewStudentData, .deleteStudentData{
+    margin-top: 1px;
+    font-size: 20px;
+    text-align: center;
+    background-color: transparent;
+    border: none; 
+}

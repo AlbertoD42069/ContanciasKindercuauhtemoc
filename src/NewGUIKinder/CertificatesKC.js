@@ -4,9 +4,10 @@ import Table from 'react-bootstrap/Table';
 import { TextCertificatesKC } from './Resources/TextsKC';
 import { collection, getDocs, onSnapshot, orderBy, query, snapshotEqual } from 'firebase/firestore';
 import { dbKinder } from '../firebase';
-
-
-
+import '../NewGUIKinder/Styles/ActionCertificateBtn.css';
+import { printCertificate } from './ActionCertificates/ActionCertificates';
+import { viewStudentData } from './ActionCertificates/ActionCertificates';
+import { deleteStudentData } from './ActionCertificates/ActionCertificates';
 
 const CertificatesKC = () => {
 
@@ -33,7 +34,6 @@ const CertificatesKC = () => {
   };
   obtenerColeccion();
 }, []);
-
   return (
     <Container className='Container'><br/>
          <div className='TituloAddStudent'>
@@ -52,9 +52,9 @@ const CertificatesKC = () => {
           <tr key={datosAlumno.id}>
             <td>{datosAlumno.nombres} {datosAlumno.primerApellido} {datosAlumno.segundoApellido}</td>
             <td>{datosAlumno.curp}</td>
-            <td>{TextCertificatesKC.imprimir}</td>
-            <td>{TextCertificatesKC.verDatosAlumno}</td>
-            <td>{TextCertificatesKC.eliminar}</td>
+            <td><button className='printCertificate' onClick={() => printCertificate(datosAlumno)}>{TextCertificatesKC.imprimir}</button></td>
+            <td><button className='viewStudentData' onClick={() => viewStudentData(datosAlumno)}>{TextCertificatesKC.verDatosAlumno}</button></td>
+            <td><button className='deleteStudentData' onClick={() => deleteStudentData(datosAlumno.id)}>{TextCertificatesKC.eliminar}</button></td>
           </tr>
         ))}
       </tbody>
