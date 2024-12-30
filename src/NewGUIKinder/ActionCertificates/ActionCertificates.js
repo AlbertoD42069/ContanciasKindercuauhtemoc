@@ -7,7 +7,7 @@ import { printStudentCertificate } from "../CertificatesPDF/GenerateCertificateP
 
 
 export const printCertificate = (datosAlumno) => {
-    printStudentCertificate(datosAlumno)
+    printStudentCertificate(datosAlumno);
 }
 export const viewStudentData = (datosAlumno) => {
     dataStudent(datosAlumno);
