@@ -26,7 +26,7 @@ const CertificatesKC = () => {
         id: doc.id,
         ...doc.data(),
       }));
-      console.log("Documentos:", datos);
+      console.log("Documentos:", datos.join());
       setCollecionAlumnos(datos)
     } catch (error) {
       console.error("Error al obtener los datos:", error);
